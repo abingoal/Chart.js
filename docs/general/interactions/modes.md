@@ -1,10 +1,10 @@
-# Interaction Modes
+# 交互模式
 
-When configuring interaction with the graph via hover or tooltips, a number of different modes are available.
+通过配置与图形悬停或工具提示的交互时，可以使用多种不同的模式。
 
-The modes are detailed below and how they behave in conjunction with the `intersect` setting.
+这些模式将在下面详细说明，以及它们与交点设置的结合方式。
 
-## point
+## 点
 Finds all of the items that intersect the point.
 
 ```javascript

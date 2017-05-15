@@ -1,9 +1,10 @@
-# Interactions
+# 交互
 
-The hover configuration is passed into the `options.hover` namespace. The global hover configuration is at `Chart.defaults.global.hover`. To configure which events trigger chart interactions, see [events](./events.md#events). 
+hover配置通过`options.hover`改变。全局hover配置位于`Chart.defaults.global.hover`。要配置哪些事件触发图表交互，请参阅[事件](./events.md#events)。
 
-| Name | Type | Default | Description
+
+| 名称 | 类型 | 默认值 | 描述
 | ---- | ---- | ------- | -----------
-| `mode` | `String` | `'nearest'` | Sets which elements appear in the tooltip. See [Interaction Modes](./modes.md#interaction-modes) for details.
-| `intersect` | `Boolean` | `true` | if true, the hover mode only applies when the mouse position intersects an item on the chart.
-| `animationDuration` | `Number` | `400` | Duration in milliseconds it takes to animate hover style changes.
+| `mode` | `String` | `'nearest'` | 设置工具提示中出现的元素。有关详细信息，请参考[交互模式](./modes.md#interaction-modes)。
+| `intersect` | `Boolean` | `true` | 如果为`true`，则hover仅适用于鼠标位置的图表进行相交。
+| `animationDuration` | `Number` | `400` | hover动画时间（毫秒单位））

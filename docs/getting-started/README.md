@@ -1,28 +1,27 @@
-# Getting Started
+# 入门
 
-Let's get started using Chart.js!
+老司机开车了
 
-First, we need to have a canvas in our page.
+首先，需要在页面中创建一个`canvas`
 
 ```html
 <canvas id="myChart"></canvas>
 ```
 
-Now that we have a canvas we can use, we need to include Chart.js in our page.
+然后需要在页面中引用Chart.js
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
 ```
-
-Now, we can create a chart. We add a script to our page:
+现在我们就可以创建一个图表了，在页面中添加以下脚本：
 
 ```javascript
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
-    // The type of chart we want to create
+    // 要创建的图表类型
     type: 'line',
 
-    // The data for our dataset
+    // 数据集
     data: {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [{
@@ -33,11 +32,13 @@ var chart = new Chart(ctx, {
         }]
     },
 
-    // Configuration options go here
+    // 配置选项
     options: {}
 });
 ```
 
-It's that easy to get started using Chart.js! From here you can explore the many options that can help you customise your charts with scales, tooltips, labels, colors, custom actions, and much more.
+是不是很容易！
 
-There are many examples of Chart.js that are available in the `/samples` folder of `Chart.js.zip` that is attatched to every [release](https://github.com/chartjs/Chart.js/releases).
+接下来的文档可以帮助你使用缩放、工具提示、标签颜色、自定义操作等进行自定义图表。v
+
+`Chart.js`的许多示例可以在`Chart.js.zip`的`/ samples`文件夹中提供，并附加到[每个版本](https://github.com/chartjs/Chart.js/releases)。

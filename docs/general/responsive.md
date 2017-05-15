@@ -1,34 +1,33 @@
-# Responsive Charts
+# 响应式图表
+当根据窗口大小更改图表大小时，主要的限制是画布渲染大小（`canvas.width`和`.height`）不能用相对值表示，与显示大小相反（`canvas.style.width`和`.height`）。此外，这些尺寸彼此独立，因此画布渲染尺寸不会根据显示尺寸自动调整，从而使渲染不准确。
 
-When it comes to change the chart size based on the window size, a major limitation is that the canvas *render* size (`canvas.width` and `.height`) can **not** be expressed with relative values, contrary to the *display* size (`canvas.style.width` and `.height`). Furthermore, these sizes are independent from each other and thus the canvas *render* size does not adjust automatically based on the *display* size, making the rendering inaccurate.
+以下示例不起作用：
 
-The following examples **do not work**:
+- `<canvas height="40vh" width="80vw">`: 无效值，画布不调整大小 ([示例](https://codepen.io/chartjs/pen/oWLZaR))
+- `<canvas style="height:40vh; width:80vw">`: 无效的行为，画布调整大小但变得模糊([example](https://codepen.io/chartjs/pen/WjxpmO))
 
-- `<canvas height="40vh" width="80vw">`: **invalid** values, the canvas doesn't resize ([example](https://codepen.io/chartjs/pen/oWLZaR))
-- `<canvas style="height:40vh; width:80vw">`: **invalid** behavior, the canvas is resized but becomes blurry ([example](https://codepen.io/chartjs/pen/WjxpmO))
+Chart.js提供了几个[选项](#configuration-option)，通过检测画布显示大小何时更改并相应地更新渲染大小来启用响应并控制图表的大小调整行为。
 
-Chart.js provides a [few options](#configuration-options) to enable responsiveness and control the resize behavior of charts by detecting when the canvas *display* size changes and update the *render* size accordingly.
+## 配置选项
 
-## Configuration Options
-
-| Name | Type | Default | Description
+| 名称 | 类型 | 默认值 | 描述
 | ---- | ---- | ------- | -----------
-| `responsive` | `Boolean` | `true` | Resizes the chart canvas when its container does ([important note...](#important-note)).
-| `responsiveAnimationDuration` | `Number` | `0` | Duration in milliseconds it takes to animate to new size after a resize event.
-| `maintainAspectRatio` | `Boolean` | `true` | Maintain the original canvas aspect ratio `(width / height)` when resizing.
-| `onResize` | `Function` | `null` | Called when a resize occurs. Gets passed two arguments: the chart instance and the new size.
+| `responsive` | `Boolean` | `true` | 调整图表画布的容器大小 ([重要提示](#important-note)).
+| `responsiveAnimationDuration` | `Number` | `0` | 调整大小后执行动画时间（以毫秒为单位））
+| `maintainAspectRatio` | `Boolean` | `true` | 保持原有的宽高比
+| `onResize` | `Function` | `null` | 调整大小时调用,获取传递两个参数：图表实例和新大小
 
-## Important Note
+## 重要提示
 
-Detecting when the canvas size changes can not be done directly from the `CANVAS` element. Chart.js uses its parent container to update the canvas *render* and *display* sizes. However, this method requires the container to be **relatively positioned**. It's also strongly recommended to **dedicate this container to the chart canvas only**. Responsiveness can then be achieved by setting relative values for the container size ([example](https://codepen.io/chartjs/pen/YVWZbz)):
+不能直接从`CANVAS`元素检测画布尺寸何时改变。Chart.js使用其父容器来更新canvas渲染和显示大小。然而，该方法要求容器相对定位。强烈建议将此容器专用于图表canvas,然后可以通过设置容器大小的相对值来实现响应：
 
+[例如](https://codepen.io/chartjs/pen/YVWZbz)
 ```html
 <div class="chart-container" style="position: relative; height:40vh; width:80vw">
     <canvas id="chart"></canvas>
 </div>
 ```
-
-The chart can also be programmatically resized by modifying the container size:
+也可以通过修改容器大小来改变图表大小：
 
 ```javascript
 chart.canvas.parentNode.style.height = '128px';

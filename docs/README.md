@@ -2,15 +2,16 @@
 
 [![Chart.js on Slack](https://img.shields.io/badge/slack-Chart.js-blue.svg)](https://chart-js-automation.herokuapp.com/)
 
-## Installation
+## 安装
 
-You can download the latest version of Chart.js from the [GitHub releases](https://github.com/chartjs/Chart.js/releases/latest) or use a [Chart.js CDN](https://cdnjs.com/libraries/Chart.js). Detailed installation instructions can be found on the [installation](./getting-started/installation.md) page.
+从[GitHub releases](https://github.com/chartjs/Chart.js/releases/latest)下载Chart.js的最新版本 或者使用 [Chart.js CDN](https://cdnjs.com/libraries/Chart.js)。
+ 详细的安装说明可以在此[安装页面](./getting-started/installation.md)查看。
 
-## Creating a Chart
+## 创建一个图表
 
-It's easy to get started with Chart.js. All that's required is the script included in your page along with a single `<canvas>` node to render the chart.
+Chart.js很容易上手，只需要在页面中引用脚本文件，并创建`<canvas>`节点即可渲染出图表。
 
-In this example, we create a bar chart for a single dataset and render that in our page. You can see all the ways to use Chart.js in the [usage documentation](./getting-started/usage.md)
+下面的例子创建了一个单数据集的Bar图表。完整的文档可查看[使用文档](./getting-started/usage.md)
 ```html
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
@@ -54,12 +55,12 @@ var myChart = new Chart(ctx, {
 </script>
 ```
 
-## Contributing
+## 贡献
 
-Before submitting an issue or a pull request to the project, please take a moment to look over the [contributing guidelines](https://github.com/chartjs/Chart.js/blob/master/docs/developers/contributing.md) first.
+在提交issue和pull request之前请先详细阅读[contributing guidelines](https://github.com/chartjs/Chart.js/blob/master/docs/developers/contributing.md)。
 
-For support using Chart.js, please post questions with the [`chartjs` tag on Stack Overflow](http://stackoverflow.com/questions/tagged/chartjs).
+对于使用Chart.js的支持，请在[Stack Overflow](http://stackoverflow.com/questions/tagged/chartjs)上使用`chartjs`标签发布问题。
 
-## License
+## 许可
 
 Chart.js is available under the [MIT license](http://opensource.org/licenses/MIT).

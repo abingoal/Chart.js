@@ -1,25 +1,23 @@
-# Usage
-Chart.js can be used with ES6 modules, plain JavaScript and module loaders.
+# 使用
+Chart.js可以与ES6模块，纯JavaScript和模块加载器一起使用。
 
-## Creating a Chart
-
-To create a chart, we need to instantiate the `Chart` class. To do this, we need to pass in the node, jQuery instance, or 2d context of the canvas of where we want to draw the chart. Here's an example.
+## 创建一个图表
+要创建图表，我们需要实例化`Chart`。 为了做到这一点，我们需要传递我们想要绘制图表的canvas节点，jQuery实例或者2d context。
 
 ```html
 <canvas id="myChart" width="400" height="400"></canvas>
 ```
 
 ```javascript
-// Any of the following formats may be used
+// 以下方式任选
 var ctx = document.getElementById("myChart");
 var ctx = document.getElementById("myChart").getContext("2d");
 var ctx = $("#myChart");
 var ctx = "myChart";
 ```
+一旦获得元素或上下文，就可以实例化一个预先定义的图表类型，或创建自己的图表。
 
-Once you have the element or context, you're ready to instantiate a pre-defined chart-type or create your own!
-
-The following example instantiates a bar chart showing the number of votes for different colors and the y-axis starting at 0.
+以下示例实例化一个条形图，显示不同颜色的投票数，y轴从0开始。
 
 ```html
 <canvas id="myChart" width="400" height="400"></canvas>

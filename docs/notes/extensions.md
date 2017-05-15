@@ -1,27 +1,28 @@
-# Popular Extensions
+# 热门扩展
 
-Many extensions can be found on the [Chart.js GitHub organization](https://github.com/chartjs) or on the [npm registry](https://www.npmjs.com/search?q=chartjs-).
+大部分的扩展都可以在[Chart.js GitHub organization](https://github.com/chartjs) 或者 [npm registry](https://www.npmjs.com/search?q=chartjs-)找到。
 
 ## Charts
 
- - <a href="https://github.com/chartjs/chartjs-chart-financial" target="_blank">chartjs-chart-financial</a> - Adds financial chart types such as a candlestick.
- - <a href="https://github.com/chartjs/Chart.BarFunnel.js" target="_blank">Chart.BarFunnel.js</a> - Adds a bar funnel chart type.
- - <a href="https://github.com/chartjs/Chart.LinearGauge.js" target="_blank">Chart.LinearGauge.js</a> - Adds a linear gauge chart type.
- - <a href="https://github.com/chartjs/Chart.smith.js" target="_blank">Chart.Smith.js</a> - Adds a smith chart type.
+ - <a href="https://github.com/chartjs/chartjs-chart-financial" target="_blank">chartjs-chart-financial</a> - 添加财务图表类型，如`candlestick`。
+ - <a href="https://github.com/chartjs/Chart.BarFunnel.js" target="_blank">Chart.BarFunnel.js</a> - 添加漏斗图图表类型。
+ - <a href="https://github.com/chartjs/Chart.LinearGauge.js" target="_blank">Chart.LinearGauge.js</a> - 添加线性量表图表类型。
+ - <a href="https://github.com/chartjs/Chart.smith.js" target="_blank">Chart.Smith.js</a> - 添加Smith图表类型。
 
-In addition, many charts can be found on the [npm registry](https://www.npmjs.com/search?q=chartjs-chart-).
+在[npm registry](https://www.npmjs.com/search?q=chartjs-chart-)中可以找到更多图表。
 
-## Plugins
+## 插件
 
- - <a href="https://github.com/chartjs/chartjs-plugin-annotation" target="_blank">chartjs-plugin-annotation.js</a> - Draw lines and boxes on chart area.
- - <a href="https://github.com/chartjs/chartjs-plugin-deferred" target="_blank">chartjs-plugin-deferred.js</a> - Defer initial chart update until chart scrolls into viewport.
- - <a href="https://github.com/compwright/chartjs-plugin-draggable" target="_blank">chartjs-plugin-draggable.js</a> - Makes select chart elements draggable with the mouse.
- - <a href="https://github.com/y-takey/chartjs-plugin-stacked100" target="_blank">chartjs-plugin-stacked100.js</a> - Draw 100% stacked bar chart.
- - <a href="https://github.com/chartjs/chartjs-plugin-zoom" target="_blank">chartjs-plugin-zoom.js</a> - Enable zooming and panning on charts.
+ - <a href="https://github.com/chartjs/chartjs-plugin-annotation" target="_blank">chartjs-plugin-annotation.js</a> - 在图表区域绘制线条和框。
+ - <a href="https://github.com/chartjs/chartjs-plugin-deferred" target="_blank">chartjs-plugin-deferred.js</a> - 图表懒加载
+ - <a href="https://github.com/compwright/chartjs-plugin-draggable" target="_blank">chartjs-plugin-draggable.js</a> - 鼠标拖动图表
+ - <a href="https://github.com/y-takey/chartjs-plugin-stacked100" target="_blank">chartjs-plugin-stacked100.js</a> - 绘制100％堆叠条形图。
+ - <a href="https://github.com/chartjs/chartjs-plugin-zoom" target="_blank">chartjs-plugin-zoom.js</a> - 在图表上启用缩放和平移。
 
-In addition, many plugins can be found on the [npm registry](https://www.npmjs.com/search?q=chartjs-plugin-).
 
-## Integrations
+在[npm registry](https://www.npmjs.com/search?q=chartjs-plugin-) 中可以找到更多插件。
+
+## 与其他项目集成
 
 ### Angular
  - <a href="https://github.com/jtblin/angular-chart.js" target="_blank">angular-chart.js</a>

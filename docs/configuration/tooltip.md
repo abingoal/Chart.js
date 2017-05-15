@@ -1,7 +1,8 @@
-# Tooltips
+# 提示
 
-## Tooltip Configuration
+## 提示配置
 
+提示
 The tooltip configuration is passed into the `options.tooltips` namespace. The global options for the chart tooltips is defined in `Chart.defaults.global.tooltips`.
 
 | Name | Type | Default | Description

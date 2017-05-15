@@ -1,5 +1,6 @@
-# Legend Configuration
+# 图例配置
 
+图表图例显示有关图表上出现的区域的数据集的数据。
 The chart legend displays data about the datasets that area appearing on the chart.
 
 ## Configuration options

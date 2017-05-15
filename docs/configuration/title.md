@@ -1,32 +1,32 @@
-# Title
+# 标题
+图表标题定义要在图表顶部绘制的文本。
 
-The chart title defines text to draw at the top of the chart.
-
-## Title Configuration
+## 标题配置
 The title configuration is passed into the `options.title` namespace. The global options for the chart title is defined in `Chart.defaults.global.title`.
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `display` | `Boolean` | `false` | is the title shown
-| `position` | `String` | `'top'` | Position of title. [more...](#position)
-| `fontSize` | `Number` | `12` | Font size
-| `fontFamily` | `String` |  `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | Font family for the title text.
-| `fontColor` | Color | `'#666'` | Font color
-| `fontStyle` | `String` | `'bold'` | Font style
-| `padding` | `Number` | `10` | Number of pixels to add above and below the title text.
-| `text` | `String` | `''` | Title text ti display
+标题在`options.title`中配置。图表标题的全局选项在`Chart.defaults.global.title`中定义。
 
-### Position
-Possible title position values are:
+| 名称 | 类型 | 默认值 | 描述
+| -----| ---- | --------| -----------
+| `display` | `Boolean` | `false` | 是否显示标题
+| `position` | `String` | `'top'` | 标题未知[更多...](#position)
+| `fontSize` | `Number` | `12` | 字体大小
+| `fontFamily` | `String` |  `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 字体集
+| `fontColor` | Color | `'#666'` | 字体颜色
+| `fontStyle` | `String` | `'bold'` | 字体样式
+| `padding` | `Number` | `10` | 标题文本上下方间距
+| `text` | `String` | `''` | 标题文字
+
+### 未知
+可用的标题位置为:
 * `'top'`
 * `'left'`
 * `'bottom'`
 * `'right'`
 
-## Example Usage
+## 示例代码
 
-The example below would enable a title of 'Custom Chart Title' on the chart that is created.
-
+以下示例将在创建的图表上加上“Custom Chart Title”的标题。
 ```javascript
 var chart = new Chart(ctx, {
     type: 'line',

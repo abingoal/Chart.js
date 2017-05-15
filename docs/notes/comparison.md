@@ -1,32 +1,32 @@
-# Comparison with Other Charting Libraries
+# 与其他图表库对比
 
-Library Features
+库特性
 
-| Feature | Chart.js | D3 | HighCharts | Chartist |
+| 特性 | Chart.js | D3 | HighCharts | Chartist |
 | ------- | -------- | --- | ---------- | -------- |
-| Completely Free | &check; | &check; | | &check; |
+| 完全免费 | &check; | &check; | | &check; |
 | Canvas | &check; | | | |
 | SVG | | &check; | &check; | &check; |
-| Built-in Charts | &check; | | &check; | &check; |
-| 8+ Chart Types | &check; | &check; | &check; | |
-| Extendable to Custom Charts | &check; | &check; | |  |
-| Supports Modern Browsers | &check; | &check; | &check; | &check; |
-| Extensive Documentation | &check; | &check; | &check; | &check; |
-| Open Source | &check; | &check; | &check; | &check; |
+| 内置图表 | &check; | | &check; | &check; |
+| 8+图表类型 | &check; | &check; | &check; | |
+| 可扩展自定义图表 | &check; | &check; | |  |
+| 支持现代浏览器 | &check; | &check; | &check; | &check; |
+| 丰富的文档 | &check; | &check; | &check; | &check; |
+| 开源 | &check; | &check; | &check; | &check; |
 
-Built in Chart Types
+内置图表类型
 
-| Type | Chart.js | HighCharts | Chartist |
+| 类型 | Chart.js | HighCharts | Chartist |
 | ---- | -------- | ---------- | -------- |
-| Combined Types | &check; | &check; | |
-| Line | &check; | &check; | &check; |
-| Bar | &check; | &check; | &check; |
-| Horizontal Bar | &check; | &check; | &check; |
-| Pie/Doughnut | &check; | &check; | &check; |
-| Polar Area | &check; | &check; | |
-| Radar | &check; |  | |
-| Scatter | &check; | &check; | &check; |
-| Bubble | &check; | | |
-| Gauges | | &check; | |
-| Maps (Heat/Tree/etc.) | | &check; | |
+| 混合图表 | &check; | &check; | |
+| 折线图 | &check; | &check; | &check; |
+| 柱状图 | &check; | &check; | &check; |
+| 水平柱状图 | &check; | &check; | &check; |
+| 饼图/环形图 | &check; | &check; | &check; |
+| 极地图 | &check; | &check; | |
+| 雷达图 | &check; |  | |
+| 离散图 | &check; | &check; | &check; |
+| 气泡图 | &check; | | |
+| 仪表盘 | | &check; | |
+| 地图 (热力图/树形图/等等) | | &check; | |
 

@@ -1,20 +1,20 @@
-# Animations
+# 动画
 
-Chart.js animates charts out of the box. A number of options are provided to configure how the animation looks and how long it takes
+Chart.js开箱即用动画图表。提供了许多选项来配置动画的外观以及动画时间。
 
-## Animation Configuration
+## 动画配置
 
-The following animation options are available. The global options for are defined in `Chart.defaults.global.animation`.
+以下为全局选项，在`Chart.defaults.global.animation`中定义。
 
-| Name | Type | Default | Description
+| 名称 | 类型 | 默认值 | 描述
 | -----| ---- | --------| -----------
-| `duration` | `Number` | `1000` | The number of milliseconds an animation takes.
-| `easing` | `String` | `'easeOutQuart'` | Easing function to use. [more...](#easing)
-| `onProgress` | `Function` | `null` | Callback called on each step of an animation. [more...](#animation-callbacks)
-| `onComplete` | `Function` | `null` | Callback called at the end of an animation. [more...](#animation-callbacks)
+| `duration` | `Number` | `1000` | 动画所需的毫秒数
+| `easing` | `String` | `'easeOutQuart'` | Easing [更多...](#easing)
+| `onProgress` | `Function` | `null` | 每一步动画的回调 [更多...](#animation-callbacks)
+| `onComplete` | `Function` | `null` | 动画结束后回调 [更多...](#animation-callbacks)
 
 ## Easing
- Available options are:
+ 可用选项:
 * `'linear'`
 * `'easeInQuad'`
 * `'easeOutQuad'`
@@ -47,38 +47,38 @@ The following animation options are available. The global options for are define
 * `'easeOutBounce'`
 * `'easeInOutBounce'`
 
-See [Robert Penner's easing equations](http://robertpenner.com/easing/).
+参考 [Robert Penner's easing equations](http://robertpenner.com/easing/).
 
-## Animation Callbacks
+## 动画回调
 
-The `onProgress` and `onComplete` callbacks are useful for synchronizing an external draw to the chart animation. The callback is passed a `Chart.Animation` instance:
+`onProgress`和`onComplete`回调对于外部操作同步到图表动画，回调传递一个`Chart.Animation`实例：
 
 ```javascript
 {
-    // Chart object
+    // Chart 对象
     chart: Chart,
 
-    // Current Animation frame number
+    // 当前动画帧数
     currentStep: Number,
 
-    // Number of animation frames
+    // 动画帧数
     numSteps: Number,
 
-    // Animation easing to use
+    // easing动画使用
     easing: String,
 
-    // Function that renders the chart
+    // 绘制图表
     render: Function,
 
-    // User callback
+    // 使用回调
     onAnimationProgress: Function,
 
-    // User callback
+    // 使用回调
     onAnimationComplete: Function
 }
 ```
 
-The following example fills a progress bar during the chart animation.
+以下示例在图表动画期间填充进度条。
 ```javascript
 var chart = new Chart(ctx, {
     type: 'line',
@@ -93,4 +93,4 @@ var chart = new Chart(ctx, {
 });
 ```
 
-Another example usage of these callbacks can be found on [Github](https://github.com/chartjs/Chart.js/blob/master/samples/animation/progress-bar.html): this sample displays a progress bar showing how far along the animation is.
+这些回调的另一个例子可以在[Github](https://github.com/chartjs/Chart.js/blob/master/samples/animation/progress-bar.html)上找到：该示例显示一个进度条，显示动画的距离。

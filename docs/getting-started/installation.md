@@ -1,10 +1,10 @@
-# Installation
-Chart.js can be installed via npm or bower. It is recommended to get Chart.js this way.
+# 安装
+Chart.js 可以通过`npm`或`bower`这两种方式安装。
 
 ## npm
 
 ```bash
-npm install chart.js --save
+npm install chart.js --savev
 ```
 
 ## Bower
@@ -14,28 +14,29 @@ bower install chart.js --save
 ```
 
 ## CDN
-or just use these [Chart.js CDN](https://cdnjs.com/libraries/Chart.js) links.
+或者使用[Chart.js CDN](https://cdnjs.com/libraries/Chart.js)
 
 
 ## Github
-You can download the latest version of [Chart.js on GitHub](https://github.com/chartjs/Chart.js/releases/latest).
+你也可以从这里[Chart.js on GitHub](https://github.com/chartjs/Chart.js/releases/latest)下载最新的发布版。
 
-If you download or clone the repository, you must [build](../developers/contributing.md#building-chartjs) Chart.js to generate the dist files. Chart.js no longer comes with prebuilt release versions, so an alternative option to downloading the repo is **strongly** advised.
+如果你download或clone了该项目，务必要先[构建 Chart.js](../developers/contributing.md#building-chartjs)以生成`dist`文件。Chart.js不再附带发布版，因此强烈建议下载发布版本。
 
-# Selecting the Correct Build
+# 选择合适的构建方式
 
-Chart.js provides two different builds that are available for your use.
+Chart.js 提供了两种不同的构建方式供你选择。
 
-## Stand-Alone Build
-Files:
+## 独立构建
+文件:
 * `dist/Chart.js`
 * `dist/Chart.min.js`
 
-This version only includes Chart.js. If this version is used and you require the use of the time axis, [Moment.js](http://momentjs.com/) will need to be included before Chart.js.
+此版本仅包含Chart.js。如果使用此版本，并且需要时间轴，则需要在构建之前将[Moment.js](http://momentjs.com/)包含进项目。
 
-## Bundled Build
-Files:
+
+## 完整构建
+文件:
 * `dist/Chart.bundle.js`
 * `dist/Chart.bundle.min.js`
 
-The bundled version includes Moment.js built into the same file. This version should be used if you wish to use time axes and want a single file to include. Do not use this build if your application already includes Moment.js. If you do, Moment.js will be included twice, increasing the page load time and potentially introducing version issues.
+此版本包含了`Moment.js`。如果你想使用时间轴并希望包含单个文件，则应该使用该版本。如果你已经在应用程序中引用了Moment.js，请使用上面的构建方式，不然将会在程序中包含两个Moment.js，这样会导致页面加载时间增加或潜在的版本引用问题。
