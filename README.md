@@ -6,6 +6,10 @@
 
 *Simple HTML5 Charts using the canvas element* [chartjs.org](http://www.chartjs.org)
 
+Fork此项目是为了将官方的英文文档翻译成中文文档
+
+**Translate English doc to Chinese** by [abingoal](https://github.com/abingoal)
+
 ## Installation
 
 You can download the latest version of Chart.js from the [GitHub releases](https://github.com/chartjs/Chart.js/releases/latest) or use a [Chart.js CDN](https://cdnjs.com/libraries/Chart.js).
