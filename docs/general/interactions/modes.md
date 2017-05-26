@@ -4,8 +4,8 @@
 
 这些模式将在下面详细说明，以及它们与交点设置的结合方式。
 
-## 点
-Finds all of the items that intersect the point.
+## 交叉点
+显示交叉点上的数据
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -20,7 +20,8 @@ var chart = new Chart(ctx, {
 ```
 
 ## nearest
-Gets the item that is nearest to the point. The nearest item is determined based on the distance to the center of the chart item (point, bar). If 2 or more items are at the same distance, the one with the smallest area is used. If `intersect` is true, this is only triggered when the mouse position intersects an item in the graph. This is very useful for combo charts where points are hidden behind bars.
+获取最接近点的项目。最近的项目是根据与图表项目中心的距离（point, bar）确定的。如果2个以上的条目距离相同，则使用最小面积的条目。
+如果`intersect`为true，则仅当鼠标位置与图形中的项目相交时触发。这对于组合图非常有用，其中点隐藏在bars后面。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -34,14 +35,14 @@ var chart = new Chart(ctx, {
 })
 ```
 
-## single (deprecated)
+## single (已废弃)
 Finds the first item that intersects the point and returns it. Behaves like 'nearest' mode with intersect = true.
 
-## label (deprecated)
-See `'index'` mode
+## label (已废弃)
+参考 `'index'` 
 
-## index
-Finds item at the same index. If the `intersect` setting is true, the first intersecting item is used to determine the index in the data. If `intersect` false the nearest item is used to determine the index. 
+## 索引
+查找相同索引项。如果`intersect`为true，则第一个相交项用于确定数据中的索引。如果 `intersect`为false，则使用最近的项来确定索引。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -55,11 +56,11 @@ var chart = new Chart(ctx, {
 })
 ```
 
-## x-axis (deprecated)
-Behaves like `'index'` mode with `intersect = false`.
+## x轴 (已废弃)
+类似设置`intersect = false`的`'index'`模式
 
-## dataset
-Finds items in the same dataset. If the `intersect` setting is true, the first intersecting item is used to determine the index in the data. If `intersect` false the nearest item is used to determine the index.
+## 数据集
+查找相同索引项。如果`intersect`为true，则第一个相交项用于确定数据中的索引。如果 `intersect`为false，则使用最近的项来确定索引。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -74,7 +75,7 @@ var chart = new Chart(ctx, {
 ```
 
 ## x
-Returns all items that would intersect based on the `X` coordinate of the position only. Would be useful for a vertical cursor implementation. Note that this only applies to cartesian charts
+返回基于`X`坐标相交的所有项目。对于垂直游标实现将是有用的。仅适用于笛卡尔图表。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -89,7 +90,7 @@ var chart = new Chart(ctx, {
 ```
 
 ## y
-Returns all items that would intersect based on the `Y` coordinate of the position. This would be useful for a horizontal cursor implementation. Note that this only applies to cartesian charts.
+返回基于`Y`坐标相交的所有项目。这对于水平光标实现将是有用的。仅适用于笛卡尔图表。
 
 ```javascript
 var chart = new Chart(ctx, {

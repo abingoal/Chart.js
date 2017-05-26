@@ -2,88 +2,89 @@
 
 ## 提示配置
 
-提示
-The tooltip configuration is passed into the `options.tooltips` namespace. The global options for the chart tooltips is defined in `Chart.defaults.global.tooltips`.
+提示框配置在`options.tooltips`中设置。图表提示框的全局选项在`Chart.defaults.global.tooltips`中定义。
 
-| Name | Type | Default | Description
+| 名称 | 类型 | 默认值 | 描述
 | -----| ---- | --------| -----------
-| `enabled` | `Boolean` | `true` | Are tooltips enabled
-| `custom` | `Function` | `null` | See [custom tooltip](#custom-tooltips) section.
-| `mode` | `String` | `'nearest'` | Sets which elements appear in the tooltip. [more...](../general/interactions/modes.md#interaction-modes).
-| `intersect` | `Boolean` | `true` | if true, the tooltip mode applies only when the mouse position intersects with an element. If false, the mode will be applied at all times.
-| `position` | `String` | `'average'` | The mode for positioning the tooltip. [more...](#position-modes)
-| `callbacks` | `Object` | | See the [callbacks section](#tooltip-callbacks)
-| `itemSort` | `Function` | | Sort tooltip items. [more...](#sort-callback)
-| `filter` | `Function` | | Filter tooltip items. [more...](#filter-callback)
-| `backgroundColor` | Color | `'rgba(0,0,0,0.8)'` | Background color of the tooltip.
-| `titleFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | title font
-| `titleFontSize` | `Number` | `12` | Title font size
-| `titleFontStyle` | `String` | `'bold'` | Title font style
-| `titleFontColor` | Color | `'#fff'` | Title font color
-| `titleSpacing` | `Number` | `2` | Spacing to add to top and bottom of each title line.
-| `titleMarginBottom` | `Number` | `6` | Margin to add on bottom of title section.
-| `bodyFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | body line font
-| `bodyFontSize` | `Number` | `12` | Body font size
-| `bodyFontStyle` | `String` | `'normal'` | Body font style
-| `bodyFontColor` | Color | `'#fff'` | Body font color
-| `bodySpacing` | `Number` | `2` | Spacing to add to top and bottom of each tooltip item.
-| `footerFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | footer font
-| `footerFontSize` | `Number` | `12` | Footer font size
-| `footerFontStyle` | `String` | `'bold'` | Footer font style
-| `footerFontColor` | Color | `'#fff'` | Footer font color
-| `footerSpacing` | `Number` | `2` | Spacing to add to top and bottom of each fotter line.
-| `footerMarginTop` | `Number` | `6` | Margin to add before drawing the footer.
-| `xPadding` | `Number` | `6` | Padding to add on left and right of tooltip.
-| `yPadding` | `Number` | `6` | Padding to add on top and bottom of tooltip.
-| `caretPadding` | `Number` | `2` | Extra distance to move the end of the tooltip arrow away from the tooltip point.
-| `caretSize` | `Number` | `5` | Size, in px, of the tooltip arrow.
-| `cornerRadius` | `Number` | `6` | Radius of tooltip corner curves.
-| `multiKeyBackground` | Color | `'#fff'` | Color to draw behind the colored boxes when multiple items are in the tooltip
-| `displayColors` | `Boolean` | `true` | if true, color boxes are shown in the tooltip
-| `borderColor` | Color | `'rgba(0,0,0,0)'` | Color of the border
-| `borderWidth` | `Number` | `0` | Size of the border
+| `enabled` | `Boolean` | `true` | 是否开启提示
+| `custom` | `Function` | `null` | 参阅[自定义工具](#custom-tooltips)提示部分See 
+| `mode` | `String` | `'nearest'` |设置提示框中显示的元素 [更多...](../general/interactions/modes.md#interaction-modes).
+| `intersect` | `Boolean` | `true` | 如果为true，则提示框模式仅在鼠标位置与元素相交时才适用。如果为false，该模式将随时应用。
+| `position` | `String` | `'average'` | 提示的位置. [更多...](#position-modes)
+| `callbacks` | `Object` | | 参考 [回调部分](#tooltip-callbacks)
+| `itemSort` | `Function` | | 提示项目排序 [more...](#sort-callback)
+| `filter` | `Function` | | 过滤提示项目. [more...](#filter-callback)
+| `backgroundColor` | Color | `'rgba(0,0,0,0.8)'` |背景色
+| `titleFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 标题字体
+| `titleFontSize` | `Number` | `12` | 标题字号
+| `titleFontStyle` | `String` | `'bold'` | 标题样式
+| `titleFontColor` | Color | `'#fff'` | 标题颜色
+| `titleSpacing` | `Number` | `2` | 添加到每个标题顶部和底部的内间距
+| `titleMarginBottom` | `Number` | `6` | 标题部分的下外间距
+| `bodyFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 内容的字体
+| `bodyFontSize` | `Number` | `12` | 内容字体大小
+| `bodyFontStyle` | `String` | `'normal'` | 内容字体样式
+| `bodyFontColor` | Color | `'#fff'` | 内容字体颜色
+| `bodySpacing` | `Number` | `2` | 内容的上下内间距
+| `footerFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 页脚字体(指提示框的底部，下同)
+| `footerFontSize` | `Number` | `12` | 页脚字体大小
+| `footerFontStyle` | `String` | `'bold'` | 页脚字体样式
+| `footerFontColor` | Color | `'#fff'` | 页脚字体颜色
+| `footerSpacing` | `Number` | `2` | 页脚上下内间距
+| `footerMarginTop` | `Number` | `6` | 页脚的外边距
+| `xPadding` | `Number` | `6` | 提示框的左右内边距
+| `yPadding` | `Number` | `6` | 提示框的上下内边距
+| `caretPadding` | `Number` | `2` | 提示箭头
+| `caretSize` | `Number` | `5` | 提示箭头大小，单位:px
+| `cornerRadius` | `Number` | `6` | 提示框圆角
+| `multiKeyBackground` | Color | `'#fff'` | 当多个项目位于提示框中时，颜色会在彩色框后面绘制
+| `displayColors` | `Boolean` | `true` | 如果为true，则工具提示中会显示颜色框
+| `borderColor` | Color | `'rgba(0,0,0,0)'` | 边框颜色
+| `borderWidth` | `Number` | `0` | 边框大小
 
-### Position Modes
- Possible modes are:
+### 位置模式
+  提供的模式有:
 * 'average'
 * 'nearest'
 
-'average' mode will place the tooltip at the average position of the items displayed in the tooltip. 'nearest' will place the tooltip at the position of the element closest to the event position.
+'average' 模式将提示框放在工具提示中显示的项目的平均位置。
 
-New modes can be defined by adding functions to the Chart.Tooltip.positioners map.
+'nearest' 模式将提示框放在最接近事件位置的元素的位置。
 
-### Sort Callback
+可以通过向`Chart.Tooltip.positioners`映射添加函数来定义新模式。
 
-Allows sorting of [tooltip items](#chart-configuration-tooltip-item-interface). Must implement at minimum a function that can be passed to [Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort).  This function can also accept a third parameter that is the data object passed to the chart.
+### 排序回调
 
-### Filter Callback
+允许对[提示项](#chart-configuration-tooltip-item-interface)进行排序。必须至少实现一个可以传递给[Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)的函数。此函数也可以接受传递给图表的数据对象的第三个参数。
 
-Allows filtering of [tooltip items](#chart-configuration-tooltip-item-interface). Must implement at minimum a function that can be passed to [Array.prototype.filter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter). This function can also accept a second parameter that is the data object passed to the chart.
+### 过滤回调
 
-## Tooltip Callbacks
+允许过滤[提示项](#chart-configuration-tooltip-item-interface)。必须至少实现一个可以传递给[Array.prototype.filter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)的函数。此函数也可以接受传递给图表的数据对象的第二个参数。
 
-The tooltip label configuration is nested below the tooltip configuration using the `callbacks` key. The tooltip has the following callbacks for providing text. For all functions, 'this' will be the tooltip object created from the Chart.Tooltip constructor.
+## 提示框回调
 
-All functions are called with the same arguments: a [tooltip item](#chart-configuration-tooltip-item-interface) and the data object passed to the chart. All functions must return either a string or an array of strings. Arrays of strings are treated as multiple lines of text.
+提示框标签的配置使用`callbacks`关键字嵌套在提示框下面。提示框具有以下提供文本的回调。对于所有函数，“this”是从`Chart.Tooltip`构造函数创建的提示对象。
 
-| Name | Arguments | Description
+使用相同的参数调用所有函数：一个[提示项](#chart-configuration-tooltip-item-interface)和传递给图表的数据对象。所有函数必须返回字符串或字符串数​​组。字符串的数组被视为多行文本。
+
+| 名称 | 参数 | 描述
 | ---- | --------- | -----------
-| `beforeTitle` | `Array[tooltipItem], data` | Returns the text to render before the title.
-| `title` | `Array[tooltipItem], data` | Returns text to render as the title of the tooltip.
-| `afterTitle` | `Array[tooltipItem], data` | Returns text to render after the title.
-| `beforeBody` | `Array[tooltipItem], data` | Returns text to render before the body section.
-| `beforeLabel` | `tooltipItem, data` | Returns text to render before an individual label. This will be called for each item in the tooltip.
-| `label` | `tooltipItem, data` | Returns text to render for an individual item in the tooltip.
-| `labelColor` | `tooltipItem, chart` | Returns the colors to render for the tooltip item. [more...](#label-color-callback)
-| `afterLabel` | `tooltipItem, data` | Returns text to render after an individual label.
-| `afterBody` | `Array[tooltipItem], data` | Returns text to render after the body section
-| `beforeFooter` | `Array[tooltipItem], data` | Returns text to render before the footer section.
-| `footer` | `Array[tooltipItem], data` | Returns text to render as the footer of the tooltip.
-| `afterFooter` | `Array[tooltipItem], data` | Text to render after the footer section
+| `beforeTitle` | `Array[tooltipItem], data` | 返回标题前要渲染的文字
+| `title` | `Array[tooltipItem], data` | 返回要作为提示框标题渲染的文本
+| `afterTitle` | `Array[tooltipItem], data` | 返回标题后渲染的文本
+| `beforeBody` | `Array[tooltipItem], data` | 返回在内容部分之前渲染的文本
+| `beforeLabel` | `tooltipItem, data` | 返回在单个label之前渲染的文本。提示框中的每个项目调用
+| `label` | `tooltipItem, data` | 返回在提示框中为单个项目渲染的文本
+| `labelColor` | `tooltipItem, chart` | 返回要渲染提示项目的颜色 [更多...](#label-color-callback)
+| `afterLabel` | `tooltipItem, data` | 返回在单个label之后渲染的文本
+| `afterBody` | `Array[tooltipItem], data` | 返回在body部分后渲染的文本
+| `beforeFooter` | `Array[tooltipItem], data` | 返回在页脚部分之前渲染的文本
+| `footer` | `Array[tooltipItem], data` | 返回纯文本的方式渲染页脚
+| `afterFooter` | `Array[tooltipItem], data` | 在页脚部分后面渲染的文字
 
-### Label Color Callback
+### 标签颜色回调
 
-For example, to return a red box for each item in the tooltip you could do:
+例如要为工具提示中的每个项目返回一个红色框，可以执行以下操作：
 ```javascript
 var chart = new Chart(ctx, {
     type: 'line',
@@ -104,9 +105,9 @@ var chart = new Chart(ctx, {
 ```
 
 
-### Tooltip Item Interface
+### 提示项接口
 
-The tooltip items passed to the tooltip callbacks implement the following interface.
+传递给工具提示回调的工具提示项实现了以下接口
 
 ```javascript
 {
@@ -130,9 +131,8 @@ The tooltip items passed to the tooltip callbacks implement the following interf
 }
 ```
 
-## External (Custom) Tooltips
-
-Custom tooltips allow you to hook into the tooltip rendering process so that you can render the tooltip in your own custom way. Generally this is used to create an HTML tooltip instead of an oncanvas one. You can enable custom tooltips in the global or chart configuration like so:
+## 外部工具提示(自定义)
+自定义工具提示允许您使用钩子介入工具提示渲染过程，以便以自定义方式渲染工具提示。通常这是用来创建一个HTML提示，而不是一个oncanvas。您可以在全局或图表配置中启用自定义工具提示，如下所示：
 
 ```javascript
 var myPieChart = new Chart(ctx, {
@@ -212,11 +212,10 @@ var myPieChart = new Chart(ctx, {
     }
 });
 ```
+有关如何开始使用的示例，请参阅`samples/tooltips/line-customTooltips.html`。
 
-See `samples/tooltips/line-customTooltips.html` for examples on how to get started.
-
-## Tooltip Model
-The tooltip model contains parameters that can be used to render the tooltip.
+## 提示框实体
+提示框实体包含可用于呈现工具提示的参数。
 
 ```javascript
 {
