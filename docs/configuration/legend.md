@@ -3,43 +3,43 @@
 图表图例显示有关图表上出现的区域的数据集的数据。
 The chart legend displays data about the datasets that area appearing on the chart.
 
-## Configuration options
-The legend configuration is passed into the `options.legend` namespace. The global options for the chart legend is defined in `Chart.defaults.global.legend`.
+## 配置选项
+图例配置在 `options.legend` 中.全局配置在 `Chart.defaults.global.legend`。
 
-| Name | Type | Default | Description
+| 名称 | 类型 | 默认值 | 描述
 | -----| ---- | --------| -----------
-| `display` | `Boolean` | `true` | is the legend shown
-| `position` | `String` | `'top'` | Position of the legend. [more...](#position)
-| `fullWidth` | `Boolean` | `true` | Marks that this box should take the full width of the canvas (pushing down other boxes). This is unlikely to need to be changed in day-to-day use.
-| `onClick` | `Function` | | A callback that is called when a click event is registered on a label item 
-| `onHover` | `Function` | | A callback that is called when a 'mousemove' event is registered on top of a label item
-| `reverse` | `Boolean` | `false` | Legend will show datasets in reverse order.
-| `labels` | `Object` | | See the [Legend Label Configuration](#legend-label-configuration) section below.
+| `display` | `Boolean` | `true` | 是否显示
+| `position` | `String` | `'top'` | 位置 [更多...](#position)
+| `fullWidth` | `Boolean` | `true` | 是否铺满画布，此配置不常改变
+| `onClick` | `Function` | | 标签项的回调事件
+| `onHover` | `Function` | | 'mousemove' 事件注册在标签项上时的回调
+| `reverse` | `Boolean` | `false` | 以相反的顺序显示数据集
+| `labels` | `Object` | | 参阅下面的[图例标签配置](#legend-label-configuration)部分
 
-## Position
-Position of the legend. Options are:
+## 位置
+图例的位置选项：
 * `'top'`
 * `'left'`
 * `'bottom'`
 * `'right'`
 
-## Legend Label Configuration
+## 图例标签配置
 
-The legend label configuration is nested below the legend configuration using the `labels` key.
+图例标签配置使用`label`关键字。
 
-| Name | Type | Default | Description
+| 名称 | 类型 | 默认值 | 描述
 | -----| ---- | --------| -----------
-| `boxWidth` | `Number` | `40` | width of coloured box
-| `fontSize` | `Number` | `12` | font size of text
-| `fontStyle` | `String` | `'normal'` | font style of text
-| `fontColor` | Color | `'#666'` | Color of text
-| `fontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | Font family of legend text.
-| `padding` | `Number` | `10` | Padding between rows of colored boxes.
-| `generateLabels` | `Function` | | Generates legend items for each thing in the legend. Default implementation returns the text + styling for the color box. See [Legend Item](#chart-configuration-legend-item-interface) for details.
-| `filter` | `Function` | `null` | Filters legend items out of the legend. Receives 2 parameters, a [Legend Item](#chart-configuration-legend-item-interface) and the chart data.
-| `usePointStyle` | `Boolean` | `false` | Label style will match corresponding point style (size is based on fontSize, boxWidth is not used in this case).
+| `boxWidth` | `Number` | `40` | 宽度
+| `fontSize` | `Number` | `12` | 字体大小
+| `fontStyle` | `String` | `'normal'` | 字体样式
+| `fontColor` | Color | `'#666'` | 字体颜色
+| `fontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` |字体集
+| `padding` | `Number` | `10` | 每个图例之间的间距
+| `generateLabels` | `Function` | | 为图例中的每个事物生成图例项目。默认实现返回颜色框的文本+样式。有关详细信息，请参阅[图例项目](#chart-configuration-legend-item-interface)。
+| `filter` | `Function` | `null` | 从图例中过滤图例。接收2个参数，[图例项目]((#chart-configuration-legend-item-interface))和图表数据。
+| `usePointStyle` | `Boolean` | `false` | 标签样式将匹配相应的点样式（大小基于fontSize，boxWidth不在这种情况下使用）。
 
-## Legend Item Interface
+## 图例项目接口
 
 Items passed to the legend `onClick` function are the ones returned from `labels.generateLabels`. These items must implement the following interface.
 
