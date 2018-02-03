@@ -21,7 +21,7 @@
     * [通用配置(elements)](configuration/elements.md)
 * [Charts](charts/README.md)
     * [折线图(line)](charts/line.md)
-    * [柱状图(bar)](charts/bar.md)
+    * [柱状/条形图(bar)](charts/bar.md)
     * [雷达图(radar)](charts/radar.md)
     * [环形&饼图(doughnut)](charts/doughnut.md)
     * [极地图(polar)](charts/polar.md)
