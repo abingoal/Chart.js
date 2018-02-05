@@ -1,100 +1,104 @@
-# Radar
-A radar chart is a way of showing multiple data points and the variation between them.
+# 雷达图(Radar)
 
-They are often useful for comparing the points of two or more different data sets.
+雷达图是显示多个数据点和它们之间的差异的一种方式。
+
+通常用于比较两个或更多不同数据集的点。
 
 {% chartjs %}
 {
-    "type": "radar",
-    "data": {
-        "labels": [
-            "Eating", 
-            "Drinking", 
-            "Sleeping", 
-            "Designing",
-            "Coding",
-            "Cycling",
-            "Running"
-        ],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [65, 59, 90, 81, 56, 55, 40],
-            "fill": true,
-            "backgroundColor": "rgba(255, 99, 132, 0.2)",
-            "borderColor": "rgb(255, 99, 132)",
-            "pointBackgroundColor": "rgb(255, 99, 132)",
-            "pointBorderColor": "#fff",
-            "pointHoverBackgroundColor": "#fff",
-            "pointHoverBorderColor": "rgb(255, 99, 132)",
-            "fill": true
-        }, {
-            "label": "My Second Dataset",
-            "data": [28, 48, 40, 19, 96, 27, 100],
-            "fill": true,
-            "backgroundColor": "rgba(54, 162, 235, 0.2)",
-            "borderColor": "rgb(54, 162, 235)",
-            "pointBackgroundColor": "rgb(54, 162, 235)",
-            "pointBorderColor": "#fff",
-            "pointHoverBackgroundColor": "#fff",
-            "pointHoverBorderColor": "rgb(54, 162, 235)",
-            "fill": true
-        }]
-    },
-    "options": {
-        "elements": {
-            "line": {
-                "tension": 0,
-                "borderWidth": 3
-            }
-        }
-    }
+"type": "radar",
+"data": {
+"labels": [
+"Eating",
+"Drinking",
+"Sleeping",
+"Designing",
+"Coding",
+"Cycling",
+"Running"
+],
+"datasets": [{
+"label": "My First Dataset",
+"data": [65, 59, 90, 81, 56, 55, 40],
+"fill": true,
+"backgroundColor": "rgba(255, 99, 132, 0.2)",
+"borderColor": "rgb(255, 99, 132)",
+"pointBackgroundColor": "rgb(255, 99, 132)",
+"pointBorderColor": "#fff",
+"pointHoverBackgroundColor": "#fff",
+"pointHoverBorderColor": "rgb(255, 99, 132)",
+"fill": true
+}, {
+"label": "My Second Dataset",
+"data": [28, 48, 40, 19, 96, 27, 100],
+"fill": true,
+"backgroundColor": "rgba(54, 162, 235, 0.2)",
+"borderColor": "rgb(54, 162, 235)",
+"pointBackgroundColor": "rgb(54, 162, 235)",
+"pointBorderColor": "#fff",
+"pointHoverBackgroundColor": "#fff",
+"pointHoverBorderColor": "rgb(54, 162, 235)",
+"fill": true
+}]
+},
+"options": {
+"elements": {
+"line": {
+"tension": 0,
+"borderWidth": 3
+}
+}
+}
 }
 {% endchartjs %}
 
-## Example Usage
+## 示例用法
+
 ```javascript
 var myRadarChart = new Chart(ctx, {
-    type: 'radar',
-    data: data,
-    options: options
+	type: "radar",
+	data: data,
+	options: options
 });
 ```
 
-## Dataset Properties
+## 数据集属性
 
-The radar chart allows a number of properties to be specified for each dataset. These are used to set display properties for a specific dataset. For example, the colour of a line is generally set this way.
+雷达图允许为每个数据集指定一些属性显示特定数据集。
 
-All point* properties can be specified as an array. If these are set to an array value, the first value applies to the first point, the second value to the second point, and so on.
+所有 point \*属性都可以被指定为一个数组。如果这些设置为数组值，则第一个值应用于第一个点，第二个值应用于第二个点，依此类推。
 
-| Name | Type | Description
-| ---- | ---- | -----------
-| `label` | `String` | The label for the dataset which appears in the legend and tooltips.
-| `backgroundColor` | `Color/Color[]` | The fill color under the line. See [Colors](../general/colors.md#colors)
-| `borderColor` | `Color/Color[]` | The color of the line. See [Colors](../general/colors.md#colors)
-| `borderWidth` | `Number/Number[]` | The width of the line in pixels.
-| `borderDash` | `Number[]` | Length and spacing of dashes. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)
-| `borderDashOffset` | `Number` | Offset for line dashes. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)
-| `borderCapStyle` | `String` | Cap style of the line. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineCap)
-| `borderJoinStyle` | `String` | Line joint style. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineJoin)
-| `fill` | `Boolean/String` | How to fill the area under the line. [more...](#fill)
-| `lineTension` | `Number` | Bezier curve tension of the line. Set to 0 to draw straightlines. 
-| `pointBackgroundColor` | `Color/Color[]` | The fill color for points.
-| `pointBorderColor` | `Color/Color[]` | The border color for points.
-| `pointBorderWidth` | `Number/Number[]` | The width of the point border in pixels.
-| `pointRadius` | `Number/Number[]` | The radius of the point shape. If set to 0, the point is not rendered.
-| `pointStyle` | `String/String[]/Image/Image[]` | Style of the point. [more...](#pointStyle)
-| `pointHitRadius` | `Number/Number[]` | The pixel size of the non-displayed point that reacts to mouse events.
-| `pointHoverBackgroundColor` | `Color/Color[]` | Point background color when hovered.
-| `pointHoverBorderColor` | `Color/Color[]` | Point border color when hovered.
-| `pointHoverBorderWidth` | `Number/Number[]` | Border width of point when hovered.
-| `pointHoverRadius` | `Number/Number[]` | The radius of the point when hovered.
+| 名称                        | 类型                            | 描述                                                                                                                 |
+| --------------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `label`                     | `String`                        | 图例和工具提示中的数据集的标签名                                                                                     |
+| `backgroundColor`           | `Color/Color[]`                 | 填充色 参考 [颜色(Colors)](../general/colors.md#colors)                                                              |
+| `borderColor`               | `Color/Color[]`                 | 线的颜色 参考[颜色(Colors)](../general/colors.md#colors)                                                             |
+| `borderWidth`               | `Number/Number[]`               | 线宽度(以像素为单位)                                                                                                 |
+| `borderDash`                | `Number[]`                      | 破折号的长度和间距 参考 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/setLineDash) |
+| `borderDashOffset`          | `Number`                        | 偏移量 参考 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)          |
+| `borderCapStyle`            | `String`                        | 线冒样式 参考 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineCap)               |
+| `borderJoinStyle`           | `String`                        | Line joint 样式 参考 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/lineJoin)       |
+| `fill`                      | `Boolean/String`                | 区域填充色 [更多...](#fill)                                                                                          |
+| `lineTension`               | `Number`                        | 贝塞尔曲线张力。0 为直线。                                                                                           |
+| `pointBackgroundColor`      | `Color/Color[]`                 | 数据点填充色                                                                                                         |
+| `pointBorderColor`          | `Color/Color[]`                 | 数据点边框色                                                                                                         |
+| `pointBorderWidth`          | `Number/Number[]`               | 数据点边框宽度(以像素为单位)                                                                                         |
+| `pointRadius`               | `Number/Number[]`               | 数据点半径。0 为不显示点                                                                                             |
+| `pointStyle`                | `String/String[]/Image/Image[]` | 数据点样式 [更多...](#pointStyle)                                                                                    |
+| `pointHitRadius`            | `Number/Number[]`               | 对鼠标事件作出响应的非显示点的像素大小。                                                                             |
+| `pointHoverBackgroundColor` | `Color/Color[]`                 | 鼠标悬浮时，数据点背景颜色                                                                                           |
+| `pointHoverBorderColor`     | `Color/Color[]`                 | 鼠标悬浮时，数据点边框色                                                                                             |
+| `pointHoverBorderWidth`     | `Number/Number[]`               | 鼠标悬浮时数据点的边框宽度                                                                                           |
+| `pointHoverRadius`          | `Number/Number[]`               | 鼠标悬停时，数据点的半径大小                                                                                         |
 
 ### pointStyle
-The style of point. Options are:
+
+数据点风格选项：
+
 * 'circle'
 * 'cross'
 * 'crossRot'
-* 'dash'. 
+* 'dash'.
 * 'line'
 * 'rect'
 * 'rectRounded'
@@ -102,38 +106,38 @@ The style of point. Options are:
 * 'star'
 * 'triangle'
 
-If the option is an image, that image is drawn on the canvas using [drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage).
+如果是使用图片，则使用[drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage)在 canvas 上绘制该图像。
 
-## Configuration Options
+## 配置选项
 
-Unlike other charts, the radar chart has no chart specific options.
+与其他图表不同，雷达图表没有图表特定选项。
 
-## Scale Options
+## 比例选项
 
-The radar chart supports only a single scale. The options for this scale are defined in the `scale` property.
+雷达图只支持一个比例尺。该比例的选项在`scale`属性中定义。
 
 ```javascript
 options = {
-    scale: {
-        // Hides the scale
-        display: false
-    }
+	scale: {
+		// Hides the scale
+		display: false
+	}
 };
 ```
 
-## Default Options
+## 默认选项
 
-It is common to want to apply a configuration setting to all created radar charts. The global radar chart settings are stored in `Chart.defaults.radar`. Changing the global options only affects charts created after the change. Existing charts are not changed.
+通常要将配置设置应用于所有创建的雷达图表。全局雷达图表设置在`Chart.defaults.radar`中。更改全局选项只会影响更改后创建的图表。现有图表不会更改。
 
-## Data Structure
+## 数据结构
 
-The `data` property of a dataset for a radar chart is specified as a an array of numbers. Each point in the data array corresponds to the label at the same index on the x axis. 
+雷达图表数据集的`data`属性被指定为一个数字数组。数据数组中的每个点对应于 x 轴上相同索引处的标签。
 
 ```javascript
-data: [20, 10]
+data: [20, 10];
 ```
 
-For a radar chart, to provide context of what each point means, we include an array of strings that show around each point in the chart.
+对于雷达图表，为了表达每个点的含义，我们在图表中的每个点周围都包含一个字符串数组。
 
 ```javascript
 data: {

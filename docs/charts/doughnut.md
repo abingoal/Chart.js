@@ -1,101 +1,100 @@
-# Doughnut and Pie
-Pie and doughnut charts are probably the most commonly used charts. They are divided into segments, the arc of each segment shows the proportional value of each piece of data.
+# 环形&饼图(Doughnut and Pie)
 
-They are excellent at showing the relational proportions between data.
+饼图和环形图表可能是最常用的图表。它们被分成不同的部分，每个部分的圆弧表示每个数据的比例值。
 
-Pie and doughnut charts are effectively the same class in Chart.js, but have one different default value - their `cutoutPercentage`. This equates what percentage of the inner should be cut out. This defaults to `0` for pie charts, and `50` for doughnuts.
+该图表在展示数据之间的关系比例方面非常出色。
 
-They are also registered under two aliases in the `Chart` core. Other than their different default value, and different alias, they are exactly the same.
+饼图和环形图在 Chart.js 中实际上是同一个类，但有一个不同的默认值 - `cutoutPercentage`。意味着内部的百分比被减少。饼图默认为 `0`，甜甜圈默认为 `50`。
+
+该图表在`Chart`核心中注册了两个别名。除了不同的默认值和不同的别名，其他是完全一样的。
 
 {% chartjs %}
 {
-    "type": "doughnut",
-    "data": {
-        "labels": [
-            "Red",
-            "Blue",
-            "Yellow",
-        ],
-        "datasets": [{
-            "label": "My First Dataset",
-            "data": [300, 50, 100],
-            "backgroundColor": [
-                "rgb(255, 99, 132)",
-                "rgb(54, 162, 235)",
-                "rgb(255, 205, 86)",
-            ]
-        }]
-    },
+"type": "doughnut",
+"data": {
+"labels": [
+"Red",
+"Blue",
+"Yellow",
+],
+"datasets": [{
+"label": "My First Dataset",
+"data": [300, 50, 100],
+"backgroundColor": [
+"rgb(255, 99, 132)",
+"rgb(54, 162, 235)",
+"rgb(255, 205, 86)",
+]
+}]
+},
 }
 {% endchartjs %}
 
-## Example Usage
+## 示例用法
 
 ```javascript
-// For a pie chart
-var myPieChart = new Chart(ctx,{
-    type: 'pie',
-    data: data,
-    options: options
+// 饼形图
+var myPieChart = new Chart(ctx, {
+	type: "pie",
+	data: data,
+	options: options
 });
 ```
 
 ```javascript
-// And for a doughnut chart
+// 环形图
 var myDoughnutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: data,
-    options: options
+	type: "doughnut",
+	data: data,
+	options: options
 });
 ```
 
-## Dataset Properties
+## 数据集属性
 
-The doughnut/pie chart allows a number of properties to be specified for each dataset. These are used to set display properties for a specific dataset. For example, the colour of a the dataset's arc are generally set this way.
+环形/饼图允许为每个数据集指定多个属性以显示特定数据集。
 
-| Name | Type | Description
-| ---- | ---- | -----------
-| `label` | `String` | The label for the dataset which appears in the legend and tooltips.
-| `backgroundColor` | `Color[]` | The fill color of the arcs in the dataset. See [Colors](../general/colors.md#colors)
-| `borderColor` | `Color[]` | The border color of the arcs in the dataset. See [Colors](../general/colors.md#colors)
-| `borderWidth` | `Number[]` | The border width of the arcs in the dataset.
-| `hoverBackgroundColor` | `Color[]` | The fill colour of the arcs when hovered.
-| `hoverBorderColor` | `Color[]` | The stroke colour of the arcs when hovered.
-| `hoverBorderWidth` | `Number[]` | The stroke width of the arcs when hovered.
+| 名称                   | 类型       | 描述                                                                          |
+| ---------------------- | ---------- | ----------------------------------------------------------------------------- |
+| `label`                | `String`   | 图例和提示中显示的标签名                                                      |
+| `backgroundColor`      | `Color[]`  | 数据集中每个数据区域的填充色 参考 [颜色(Colors)](../general/colors.md#colors) |
+| `borderColor`          | `Color[]`  | 边框色 参考 [颜色(Colors)](../general/colors.md#colors)                       |
+| `borderWidth`          | `Number[]` | 边框宽度                                                                      |
+| `hoverBackgroundColor` | `Color[]`  | 鼠标悬浮时的填充色                                                            |
+| `hoverBorderColor`     | `Color[]`  | 鼠标悬浮时边框色                                                              |
+| `hoverBorderWidth`     | `Number[]` | 鼠标悬浮时边框宽度                                                            |
 
-## Config Options
+## 配置选项
 
-These are the customisation options specific to Pie & Doughnut charts. These options are merged with the global chart configuration options, and form the options of the chart.
+这些是 Pie＆Donut 图表特有的自定义选项。这些选项与全局图表配置选项合并，组成最终选项。
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| `cutoutPercentage` | `Number` | `50` - for doughnut, `0` - for pie | The percentage of the chart that is cut out of the middle.
-| `rotation` | `Number` | `-0.5 * Math.PI` | Starting angle to draw arcs from.
-| `circumference` | `Number` | `2 * Math.PI` | Sweep to allow arcs to cover
-| `animation.animateRotate` | `Boolean` | `true` | If true, the chart will animate in with a rotation animation. This property is in the `options.animation` object.
-| `animation.animateScale` | `Boolean` | `false` | If true, will animate scaling the chart from the center outwards.
+| 名称                      | 类型      | 默认值                             | 描述                                                                           |
+| ------------------------- | --------- | ---------------------------------- | ------------------------------------------------------------------------------ |
+| `cutoutPercentage`        | `Number`  | `50` - for doughnut, `0` - for pie | 从中间切出的图表的百分比。                                                     |
+| `rotation`                | `Number`  | `-0.5 * Math.PI`                   | 起始角度                                                                       |
+| `circumference`           | `Number`  | `2 * Math.PI`                      | 允许图形覆盖                                                                   |
+| `animation.animateRotate` | `Boolean` | `true`                             | 如果为 true，则图表将使用旋转动画进行动画。该属性在`options.animation`对象中。 |
+| `animation.animateScale`  | `Boolean` | `false`                            | 如果为 true，则将动画从中心向外缩放图表。                                      |
 
-## Default Options
+## 默认选项
 
-We can also change these default values for each Doughnut type that is created, this object is available at `Chart.defaults.doughnut`. Pie charts also have a clone of these defaults available to change at `Chart.defaults.pie`, with the only difference being `cutoutPercentage` being set to 0.
+我们也可以为创建的每个环形图表更改这些默认值，该配置选项在`Chart.defaults.doughnut`中可用。饼图还可以在`Chart.defaults.pie`中使用同样的值，唯一的区别是`cutoutPercentage`被设置为 0。
 
-## Data Structure
+## 数据结构
 
-For a pie chart, datasets need to contain an array of data points. The data points should be a number, Chart.js will total all of the numbers and calculate the relative proportion of each.
+对于饼图，数据集需要包含一组数据点。数据点应该是一个数字，Chart.js 将所有的数字汇总并计算每个数据的相对比例。
 
-You also need to specify an array of labels so that tooltips appear correctly
+你还需要指定一个标签数组，以便在 tooltips 中显示
 
 ```javascript
 data = {
-    datasets: [{
-        data: [10, 20, 30]
-    }],
+	datasets: [
+		{
+			data: [10, 20, 30]
+		}
+	],
 
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-        'Red',
-        'Yellow',
-        'Blue'
-    ]
+	// These labels appear in the legend and in the tooltips when hovering different arcs
+	labels: ["Red", "Yellow", "Blue"]
 };
 ```

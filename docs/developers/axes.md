@@ -1,10 +1,10 @@
-# New Axes
+# 新的坐标轴(New Axes)
 
-Axes in Chart.js can be individually extended. Axes should always derive from Chart.Scale but this is not a mandatory requirement.
+Chart.js 中的坐标轴可以单独扩展。坐标轴应始终来自`Chart.Scale`，但并非强制性的要求。
 
 ```javascript
 let MyScale = Chart.Scale.extend({
-    /* extensions ... */
+	/* extensions ... */
 });
 
 // MyScale is now derived from Chart.Scale
@@ -13,23 +13,25 @@ let MyScale = Chart.Scale.extend({
 Once you have created your scale class, you need to register it with the global chart object so that it can be used. A default config for the scale may be provided when registering the constructor. The first parameter to the register function is a string key that is used later to identify which scale type to use for a chart.
 
 ```javascript
-Chart.scaleService.registerScaleType('myScale', MyScale, defaultConfigObject);
+Chart.scaleService.registerScaleType("myScale", MyScale, defaultConfigObject);
 ```
 
 To use the new scale, simply pass in the string key to the config when creating a chart.
 
 ```javascript
 var lineChart = new Chart(ctx, {
-    data: data,
-    type: 'line',
-    options: {
-        scales: {
-            yAxes: [{
-                type: 'myScale' // this is the same key that was passed to the registerScaleType function
-            }]
-        }
-    }
-})
+	data: data,
+	type: "line",
+	options: {
+		scales: {
+			yAxes: [
+				{
+					type: "myScale" // this is the same key that was passed to the registerScaleType function
+				}
+			]
+		}
+	}
+});
 ```
 
 ## Scale Properties
@@ -62,6 +64,7 @@ Scale instances are given the following properties during the fitting process.
 ```
 
 ## Scale Interface
+
 To work with Chart.js, custom scale types must implement the following interface.
 
 ```javascript
@@ -116,6 +119,7 @@ Optionally, the following methods may also be overwritten, but an implementation
 ```
 
 The Core.Scale base class also has some utility functions that you may find useful.
+
 ```javascript
 {
     // Returns true if the scale instance is horizontal

@@ -1,72 +1,75 @@
-# Mixed Chart Types
+# 混合图表(Mixed Chart Types)
 
-With Chart.js, it is possible to create mixed charts that are a combination of two or more different chart types. A common example is a bar chart that also includes a line dataset.
+Chart.js 可以创建两个或更多不同图表类型组合的混合图表。一个常见的例子是一个条形图和折线图的结合。
 
-Creating a mixed chart starts with the initialization of a basic chart.
+创建混合图表从一个基本图表的初始化开始。
 
 ```javascript
 var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: options
+	type: "bar",
+	data: data,
+	options: options
 });
 ```
 
-At this point we have a standard bar chart. Now we need to convert one of the datasets to a line dataset.
+现在我们有一个标准的条形图。现在我们需要将其中一个数据集转换为折线图数据集。
 
 ```javascript
 var mixedChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    datasets: [{
-          label: 'Bar Dataset',
-          data: [10, 20, 30, 40]
-        }, {
-          label: 'Line Dataset',
-          data: [50, 50, 50, 50],
+	type: "bar",
+	data: {
+		datasets: [
+			{
+				label: "Bar Dataset",
+				data: [10, 20, 30, 40]
+			},
+			{
+				label: "Line Dataset",
+				data: [50, 50, 50, 50],
 
-          // Changes this dataset to become a line
-          type: 'line'
-        }],
-    labels: ['January', 'February', 'March', 'April']
-  },
-  options: options
+				// 将此数据集类型变为折线图
+				type: "line"
+			}
+		],
+		labels: ["January", "February", "March", "April"]
+	},
+	options: options
 });
 ```
 
-At this point we have a chart rendering how we'd like. It's important to note that the default options for a line chart are not merged in this case. Only the options for the default type are merged in. In this case, that means that the default options for a bar chart are merged because that is the type specified by the `type` field.
+如下有一个图表，呈现我们想要的信息。需要注意的是，在这种情况下折线图的默认选项不会合并。只有当`type`字段指定的类型时，默认类型的选项才会被合并。
 
 {% chartjs %}
 {
-  "type": "bar",
-  "data": {
-    "labels": [
-      "January", 
-      "February", 
-      "March", 
-      "April"
-    ],
-    "datasets": [{
-      "label": "Bar Dataset",
-      "data": [10, 20, 30, 40],
-      "borderColor": "rgb(255, 99, 132)",
-      "backgroundColor": "rgba(255, 99, 132, 0.2)"
-    }, {
-      "label": "Line Dataset",
-      "data": [50, 50, 50, 50],
-      "type": "line",
-      "fill": false,
-      "borderColor": "rgb(54, 162, 235)"
-    }]
-  },
-  "options": {
-    "scales": {
-      "yAxes": [{
-        "ticks": {
-          "beginAtZero": true
-        }
-      }]
-    }
-  }
+"type": "bar",
+"data": {
+"labels": [
+"January",
+"February",
+"March",
+"April"
+],
+"datasets": [{
+"label": "Bar Dataset",
+"data": [10, 20, 30, 40],
+"borderColor": "rgb(255, 99, 132)",
+"backgroundColor": "rgba(255, 99, 132, 0.2)"
+}, {
+"label": "Line Dataset",
+"data": [50, 50, 50, 50],
+"type": "line",
+"fill": false,
+"borderColor": "rgb(54, 162, 235)"
+}]
+},
+"options": {
+"scales": {
+"yAxes": [{
+"ticks": {
+"beginAtZero": true
+}
+}]
+}
+}
 }
 {% endchartjs %}

@@ -1,71 +1,71 @@
-# Bubble Chart
+# 气泡图(Bubble Chart)
 
-A bubble chart is used to display three dimensions of data at the same time. The location of the bubble is determined by the first two dimensions and the corresponding horizontal and vertical axes. The third dimension is represented by the size of the individual bubbles. 
+气泡图用于同时显示三维数据。气泡的位置由前两个维度以及相应的水平和垂直轴线确定。第三个维度由单个气泡的大小来表示。
 
 {% chartjs %}
 {
-    "type": "bubble",
-    "data": {
-        "datasets": [{
-            "label": "First Dataset",
-            "data": [{
-                "x": 20,
-                "y": 30,
-                "r": 15
-            }, {
-                "x": 40,
-                "y": 10,
-                "r": 10
-            }],
-            "backgroundColor": "rgb(255, 99, 132)"
-        }]
-    },
+"type": "bubble",
+"data": {
+"datasets": [{
+"label": "First Dataset",
+"data": [{
+"x": 20,
+"y": 30,
+"r": 15
+}, {
+"x": 40,
+"y": 10,
+"r": 10
+}],
+"backgroundColor": "rgb(255, 99, 132)"
+}]
+},
 }
 {% endchartjs %}
 
-## Example Usage
+## 示例用法
 
 ```javascript
 // For a bubble chart
-var myBubbleChart = new Chart(ctx,{
-    type: 'bubble',
-    data: data,
-    options: options
+var myBubbleChart = new Chart(ctx, {
+	type: "bubble",
+	data: data,
+	options: options
 });
 ```
 
-## Dataset Properties
+## 数据集属性
 
-The bubble chart allows a number of properties to be specified for each dataset. These are used to set display properties for a specific dataset. For example, the colour of the bubbles is generally set this way.
+气泡图允许为每个数据集指定许多属性。这些用于设置特定数据集的显示属性。
 
-All properties, except `label` can be specified as an array. If these are set to an array value, the first value applies to the first bubble in the dataset, the second value to the second bubble, and so on.
+所有属性，除了`label`可以被指定为一个数组。如果这些设置为数组值，则第一个值应用于数据集中的第一个气泡，第二个值应用于第二个气泡，依此类推。
 
-| Name | Type | Description
-| ---- | ---- | -----------
-| `label` | `String` | The label for the dataset which appears in the legend and tooltips.
-| `backgroundColor` | `Color/Color[]` | The fill color for bubbles.
-| `borderColor` | `Color/Color[]` | The border color for bubbles.
-| `borderWidth` | `Number/Number[]` | The width of the point bubbles in pixels.
-| `hoverBackgroundColor` | `Color/Color[]` | Bubble background color when hovered.
-| `hoverBorderColor` | `Color/Color[]` | Bubble border color when hovered.
-| `hoverBorderWidth` | `Number/Number[]` | Border width of point when hovered.
-| `hoverRadius` | `Number/Number[]` | Additional radius to add to data radius on hover.
+| 名称                   | 类型              | 描述                               |
+| ---------------------- | ----------------- | ---------------------------------- |
+| `label`                | `String`          | 图例和工具提示中的数据集的标签名。 |
+| `backgroundColor`      | `Color/Color[]`   | 气泡填充色                         |
+| `borderColor`          | `Color/Color[]`   | 气泡边框色                         |
+| `borderWidth`          | `Number/Number[]` | 气泡边框宽度(以像素为单位)         |
+| `hoverBackgroundColor` | `Color/Color[]`   | 鼠标悬浮时气泡背景色               |
+| `hoverBorderColor`     | `Color/Color[]`   | 鼠标悬浮时边框背景色               |
+| `hoverBorderWidth`     | `Number/Number[]` | 鼠标悬浮时边框宽度                 |
+| `hoverRadius`          | `Number/Number[]` | 鼠标悬停时气泡增加半径             |
 
-## Config Options
+## 配置选项
 
-The bubble chart has no unique configuration options. To configure options common to all of the bubbles, the [point element options](../configuration/elements/point.md#point-configuration) are used.
+气泡图没有独特的配置选项。要配置所有气泡通用的选项，使用[点元素选项](../configuration/elements/point.md#point-configuration)。
 
-## Default Options
+## 默认选项
 
-We can also change the default values for the Bubble chart type. Doing so will give all bubble charts created after this point the new defaults. The default configuration for the bubble chart can be accessed at `Chart.defaults.bubble`.
+我们也可以更改气泡图表类型的默认值。这样做会使所有在这个点之后创建的气泡图表成为新的默认值。气泡图的默认配置可以在`Chart.defaults.bubble`中访问。
 
-## Data Structure
+## 数据结构
 
-For a bubble chart, datasets need to contain an array of data points. Each point must implement the [bubble data object](#bubble-data-object) interface.
+对于气泡图，数据集需要包含一组数据点。每个点必须实现[气泡数据对象](#bubble-data-object)接口。
 
-### Bubble Data Object
+### 气泡数据对象
 
-Data for the bubble chart is passed in the form of an object. The object must implement the following interface. It is important to note that the radius property, `r` is **not** scaled by the chart. It is the raw radius in pixels of the bubble that is drawn on the canvas.
+气泡图的数据以对象的形式传递。该对象必须实现以下接口。请注意，半径属性`r` **不会**被图表缩放。它是在 canvas 上绘制的气泡的像素的原始半径。
 
 ```javascript
 {
@@ -75,7 +75,7 @@ Data for the bubble chart is passed in the form of an object. The object must im
     // Y Value
     y: <Number>,
 
-    // Radius of bubble. This is not scaled.
+    // 气泡半径，不可缩放
     r: <Number>
 }
 ```

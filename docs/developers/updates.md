@@ -1,31 +1,31 @@
-# Updating Charts
+# 更新 Charts
 
-It's pretty common to want to update charts after they've been created. When the chart data is changed, Chart.js will animate to the new data values. 
+在创建图表后更新图表是非常常见的。图表数据更改后，Chart.js 将动画显示新的数据值。
 
-## Adding or Removing Data
+## 添加或移除数据
 
-Adding and removing data is supported by changing the data array. To add data, just add data into the data array as seen in this example.
+通过更改数据数组来支持添加和删除数据。要添加数据，只需将数据添加到数据数组中，如本例所示。
 
 ```javascript
 function addData(chart, label, data) {
-    chart.data.labels.push(label);
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(data);
-    });
-    chart.update();
+	chart.data.labels.push(label);
+	chart.data.datasets.forEach(dataset => {
+		dataset.data.push(data);
+	});
+	chart.update();
 }
 ```
 
 ```javascript
 function removeData(chart) {
-    chart.data.labels.pop();
-    chart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-    });
-    chart.update();
+	chart.data.labels.pop();
+	chart.data.datasets.forEach(dataset => {
+		dataset.data.pop();
+	});
+	chart.update();
 }
 ```
 
-## Preventing Animations
+## 禁止动画
 
-Sometimes when a chart updates, you may not want an animation. To achieve this you can call `update` with a duration of `0`. This will render the chart synchronously and without an animation.
+有时当图表更新时，您可能不需要动画。为此，你可以设置`update` 的持续时间为 `0`.这将会同步渲染图表，而不需要动画。

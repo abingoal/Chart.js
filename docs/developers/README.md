@@ -1,22 +1,23 @@
-# Developers
-Developer features allow extending and enhancing Chart.js in many different ways.
+# 开发者
 
-# Browser support
+开发者功能允许以许多不同的方式扩展和增强 Chart.js。
 
-Chart.js offers support for all browsers where canvas is supported.
+# 浏览器支持
 
-Browser support for the canvas element is available in all modern & major mobile browsers. [CanIUse](http://caniuse.com/#feat=canvas)
+Chart.js 支持所有支持 canvas 的浏览器。
 
-Thanks to [BrowserStack](https://browserstack.com) for allowing our team to test on thousands of browsers.
+所有现代和主流移动浏览器都支持浏览器对 canvas 元素的支持。[CanIUse](http://caniuse.com/#feat=canvas)
 
-# Previous versions
+感谢[BrowserStack](https://browserstack.com)让我们的团队在数千个浏览器上进行测试。
 
-Version 2 has a completely different API than earlier versions.
+# 旧版本
 
-Most earlier version options have current equivalents or are the same.
+版本 2 具有与早期版本完全不同的 API。
 
-Please use the documentation that is available on [chartjs.org](http://www.chartjs.org/docs/) for the current version of Chart.js.
+大多数早期的版本选项具有当前的等价物或者相同。
 
-Please note - documentation for previous versions are available on the GitHub repo.
+请使用[chartjs.org](http://www.chartjs.org/docs/) 上提供的文档来查看当前版本的 Chart.js。
 
-- [1.x Documentation](https://github.com/chartjs/Chart.js/tree/v1.1.1/docs)
+请注意 - 以前版本的文档可以在 GitHub 仓库中找到。
+
+* [1.x Documentation](https://github.com/chartjs/Chart.js/tree/v1.1.1/docs)

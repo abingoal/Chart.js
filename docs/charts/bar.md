@@ -1,4 +1,4 @@
-# 柱状/条形图
+# 柱状/条形图(Bar)
 
 柱状/条形图提供了一种以竖线表示数据值的显示方式。用来显示数据趋势，并排比较多个数据集。
 
@@ -64,7 +64,7 @@ var myBarChart = new Chart(ctx, {
 
 ## 数据集属性
 
-柱状/条形图允许为每个数据集指定一些属性用于显示特定数据集一些属性可以被指定为一个数组。如果这些设置为数组值，则第一个值应用于第一个节点，第二个值应用于第二个节点，依此类推。
+柱状/条形图允许为每个数据集指定一些属性用于显示特定数据集。一些属性可以被指定为一个数组。如果这些设置为数组值，则第一个值应用于第一个节点，第二个值应用于第二个节点，依此类推。
 
 | 名称                   | 类型              | 描述                                                                    |
 | ---------------------- | ----------------- | ----------------------------------------------------------------------- |
@@ -94,19 +94,19 @@ var myBarChart = new Chart(ctx, {
 
 柱状/条形图定义了以下配置选项。这些选项与全局图表配置选项`Chart.defaults.global`合并，形成最终传递给图表的选项。
 
-| 名称                        | 类型      | 默认值 | 描述                                                                                                                                                                                                                                |
-| --------------------------- | --------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `barPercentage`             | `Number`  | `0.9`  | Percent (0-1) of the available width each bar should be within the category percentage. 1.0 will take the whole category width and put the bars right next to each other. [more...](#bar-chart-barpercentage-vs-categorypercentage) |
-| `categoryPercentage`        | `Number`  | `0.8`  | Percent (0-1) of the available width (the space between the gridlines for small datasets) for each data-point to use for the bars. [more...](#bar-chart-barpercentage-vs-categorypercentage)                                        |
-| `barThickness`              | `Number`  |        | Manually set width of each bar in pixels. If not set, the bars are sized automatically using `barPercentage` and `categoryPercentage`;                                                                                              |
-| `maxBarThickness`           | `Number`  |        | Set this to ensure that the automatically sized bars are not sized thicker than this. Only works if barThickness is not set (automatic sizing is enabled).                                                                          |
-| `gridLines.offsetGridLines` | `Boolean` | `true` | If true, the bars for a particular data point fall between the grid lines. If false, the grid line will go right down the middle of the bars. [more...](#offsetGridLines)                                                           |
+| 名称                        | 类型      | 默认值 | 描述                                                                                                                                               |
+| --------------------------- | --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `barPercentage`             | `Number`  | `0.9`  | 在 category 百分比内，每条 bar 的百分比(0-1)。如果设置为 1，则将使用 category 的整个宽度 [更多...](#bar-chart-barpercentage-vs-categorypercentage) |
+| `categoryPercentage`        | `Number`  | `0.8`  | 每个数据点可用宽度的百分比[更多...](#bar-chart-barpercentage-vs-categorypercentage)                                                                |
+| `barThickness`              | `Number`  |        | 手动设置每个 bar 的宽度像素。如果未设置，则使用 `barPercentage` 和 `categoryPercentage` 自动调整大小;                                              |
+| `maxBarThickness`           | `Number`  |        | 设置该选项确保自动调整尺寸的 bar 的大小。仅当`barThickness`未设置时才能使用（自动调整大小已启用）。                                                |
+| `gridLines.offsetGridLines` | `Boolean` | `true` | 如果为 true，则特定数据点的条形落在网格线之间。如果为 false，网格线将直接位于网格中间。[更多...](#offsetGridLines)                                 |
 
 ### offsetGridLines
 
-If true, the bars for a particular data point fall between the grid lines. If false, the grid line will go right down the middle of the bars. It is unlikely that this will ever need to be changed in practice. It exists more as a way to reuse the axis code by configuring the existing axis slightly differently.
+如果为 true，则特定数据点的条形落在网格线之间。如果为 false，网格线将直接位于网格中间。在实际项目中这是不太可能需要改变的。一般通过不同的配置来重复使用。
 
-This setting applies to the axis configuration for a bar chart. If axes are added to the chart, this setting will need to be set for each new axis.
+此设置适用于条形图的轴配置。需要为每个新添加到图表中的轴设置此设置。
 
 ```javascript
 options = {
@@ -122,13 +122,13 @@ options = {
 };
 ```
 
-## Default Options
+## 默认选项
 
-It is common to want to apply a configuration setting to all created bar charts. The global bar chart settings are stored in `Chart.defaults.bar`. Changing the global options only affects charts created after the change. Existing charts are not changed.
+通常要将配置设置应用于所有创建的条形图。全局条形图设置存储在`Chart.defaults.bar`中。更改全局选项只会影响更改后创建的图表。现有图表不会更改。
 
 ## barPercentage vs categoryPercentage
 
-The following shows the relationship between the bar percentage option and the category percentage option.
+以下显示了百分比选项与类别百分比选项之间的关系。
 
 ```text
 // categoryPercentage: 1.0
@@ -150,17 +150,17 @@ Category:       |  .5  |
 Sample:     |==============|
 ```
 
-## Data Structure
+## 数据结构
 
-The `data` property of a dataset for a bar chart is specified as a an array of numbers. Each point in the data array corresponds to the label at the same index on the x axis.
+条形图数据集的`data`属性被指定为一个数字数组。数据数组中的每个点对应于 x 轴上相同索引处的标签。
 
 ```javascript
 data: [20, 10];
 ```
 
-# Stacked Bar Chart
+# 堆积条形图
 
-Bar charts can be configured into stacked bar charts by changing the settings on the X and Y axes to enable stacking. Stacked bar charts can be used to show how one data series is made up of a number of smaller pieces.
+条形图可以通过改变 X 轴和 Y 轴上的设置来启用堆叠，将其配置为堆叠条形图。堆积的条形图可以用来显示一个数据系列是如何由许多小块构成的。
 
 ```javascript
 var stackedBar = new Chart(ctx, {
@@ -183,17 +183,18 @@ var stackedBar = new Chart(ctx, {
 });
 ```
 
-## Dataset Properties
+## 数据集属性
 
-The following dataset properties are specific to stacked bar charts.
+以下数据集属性特定于堆叠条形图。
 
-| Name    | Type     | Description                                                                                              |
-| ------- | -------- | -------------------------------------------------------------------------------------------------------- |
-| `stack` | `String` | The ID of the group to which this dataset belongs to (when stacked, each group will be a separate stack) |
+| 名称    | 类型     | 描述                                                        |
+| ------- | -------- | ----------------------------------------------------------- |
+| `stack` | `String` | 该数据集所属的组的 ID（堆叠时，每个组将是一个单独的 stack） |
 
-# Horizontal Bar Chart
+# 水平条形图
 
-A horizontal bar chart is a variation on a vertical bar chart. It is sometimes used to show trend data, and the comparison of multiple data sets side by side.
+水平条形图是垂直条形图上的变体。它有时用来显示趋势数据，并排比较多个数据集。
+
 {% chartjs %}
 {
 "type": "horizontalBar",
@@ -236,7 +237,7 @@ A horizontal bar chart is a variation on a vertical bar chart. It is sometimes u
 }
 {% endchartjs %}
 
-## Example
+## 示例
 
 ```javascript
 var myBarChart = new Chart(ctx, {
@@ -246,8 +247,8 @@ var myBarChart = new Chart(ctx, {
 });
 ```
 
-## Config Options
+## 配置选项
 
-The configuration options for the horizontal bar chart are the same as for the [bar chart](../bar/config-options.md#config-options). However, any options specified on the x axis in a bar chart, are applied to the y axis in a horizontal bar chart.
+水平条形图的配置选项与[条形图(bar)](../bar/config-options.md#config-options)相同。但是，任何在条形图中 x 轴上指定的选项都将应用于水平条形图中的 y 轴。
 
-The default horizontal bar configuration is specified in `Chart.defaults.horizontalBar`.
+默认的水平栏配置选项在`Chart.defaults.horizo​​ntalBar`中设置。
