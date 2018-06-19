@@ -1,52 +1,52 @@
 # 坐标轴(Axes)
 
-Axes are an integral part of a chart. They are used to determine how data maps to a pixel value on the chart. In a cartesian chart, there is 1 or more X axis and 1 or more Y axis to map points onto the 2 dimensional canvas. These axes are know as ['cartesian axes'](./cartesian/README.md#cartesian-axes).
+坐标轴是图表的组成部分。它们用于确定数据如何映射到图表上的像素值。在笛卡尔图表中，有1个或多个X轴和1个或多个Y轴将点映射到2维画布上。这些轴被称为[笛卡尔轴(cartesian axes)](./cartesian/README.md#cartesian-axes)。
 
-In a radial chart, such as a radar chart or a polar area chart, there is a single axis that maps points in the angular and radial directions. These are known as ['radial axes'](./radial/README.md#radial-axes).
+在径向图表中，如雷达图或极地面积图，有一个单一轴可以在角度和径向方向上映射点。这些被称为[径向轴(radial axes)](./radial/README.md#radial-axes)。
 
-Scales in Chart.js >V2.0 are significantly more powerful, but also different than those of v1.0.
+2.0版本以上的Chart.js的刻度选项比1.0版本更强大，但也有些许不同。
 
-* Multiple X & Y axes are supported.
-* A built-in label auto-skip feature detects would-be overlapping ticks and labels and removes every nth label to keep things displaying normally.
-* Scale titles are supported
-* New scale types can be extended without writing an entirely new chart type
+* 支持多 X轴 和 Y轴
+* 内置的标签auto-skip特性可以检测到重叠的刻度和标签，然后移除所有第n个标签以保持正常显示。
+* 支持缩放标题
+* 无需编写全新的图表类型即可扩展新的比例类型
 
-# Common Configuration
+# 通用配置
 
-The following properties are common to all axes provided by Chart.js
+以下属性对Chart.js提供的所有坐标轴都是通用的
 
-| Name        | Type      | Default | Description                                                                                                               |
-| ----------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `display`   | `Boolean` | `true`  | If set to `false` the axis is hidden from view. Overrides _gridLines.display_, _scaleLabel.display_, and _ticks.display_. |
-| `callbacks` | `Object`  |         | Callback functions to hook into the axis lifecycle. [more...](#callbacks)                                                 |
-| `weight`    | `Number`  | `0`     | The weight used to sort the axis. Higher weights are further away from the chart area.                                    |
+| 名称        | 类型      | 默认值 | 描述                                                                                                             |
+| ----------- | --------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
+| `display`   | `Boolean` | `true` | 如果设置为`false` ，则该坐标轴从视图中隐藏。覆盖 _gridLines.display_, _scaleLabel.display_, and _ticks.display_. |
+| `callbacks` | `Object`  |        | 坐标轴生命周期的回调函数钩子 [更多...](#callbacks)                                                               |
+| `weight`    | `Number`  | `0`    | 坐标轴排序权重，数值越高离图标区域越远                                                                           |
 
-## Callbacks
+## 回调
 
-There are a number of config callbacks that can be used to change parameters in the scale at different points in the update process.
+以下回调函数可用于更改更新过程中不同点处的比例参数
 
-| Name                          | Arguments | Description                                                             |
-| ----------------------------- | --------- | ----------------------------------------------------------------------- |
-| `beforeUpdate`                | `axis`    | Callback called before the update process starts.                       |
-| `beforeSetDimensions`         | `axis`    | Callback that runs before dimensions are set.                           |
-| `afterSetDimensions`          | `axis`    | Callback that runs after dimensions are set.                            |
-| `beforeDataLimits`            | `axis`    | Callback that runs before data limits are determined.                   |
-| `afterDataLimits`             | `axis`    | Callback that runs after data limits are determined.                    |
-| `beforeBuildTicks`            | `axis`    | Callback that runs before ticks are created.                            |
-| `afterBuildTicks`             | `axis`    | Callback that runs after ticks are created. Useful for filtering ticks. |
-| `beforeTickToLabelConversion` | `axis`    | Callback that runs before ticks are converted into strings.             |
-| `afterTickToLabelConversion`  | `axis`    | Callback that runs after ticks are converted into strings.              |
-| `beforeCalculateTickRotation` | `axis`    | Callback that runs before tick rotation is determined.                  |
-| `afterCalculateTickRotation`  | `axis`    | Callback that runs after tick rotation is determined.                   |
-| `beforeFit`                   | `axis`    | Callback that runs before the scale fits to the canvas.                 |
-| `afterFit`                    | `axis`    | Callback that runs after the scale fits to the canvas.                  |
-| `afterUpdate`                 | `axis`    | Callback that runs at the end of the update process.                    |
+| 名称 | 参数 | 描述 |
+| ---- | ---- | ---- |---------------------------------------- |
+| `beforeUpdate`                | `axis`    | 在更新之前回调                       |
+| `beforeSetDimensions`         | `axis`    | 在设置尺寸之前回调                          |
+| `afterSetDimensions`          | `axis`    | 在设置尺寸之后回调                            |
+| `beforeDataLimits`            | `axis`    | 在确定数据限制之前回调                   |
+| `afterDataLimits`             | `axis`    | 在确定数据限制之后回调                   |
+| `beforeBuildTicks`            | `axis`    | 在ticks创建之前回调                           |
+| `afterBuildTicks`             | `axis`    | 在ticks创建之后回调。用于过滤ticks |
+| `beforeTickToLabelConversion` | `axis`    | 在把ticks转换为字符之前回调        |
+| `afterTickToLabelConversion`  | `axis`    | 在把ticks转换为字符之后回调             |
+| `beforeCalculateTickRotation` | `axis`    | 在 tick rotation被确定之前回调|
+| `afterCalculateTickRotation`  | `axis`    | 在 tick rotation被确定之后回调 |
+| `beforeFit`                   | `axis`    | 在比例适合canvas前的回调                 |
+| `afterFit`                    | `axis`    | 在比例适合canvas后的回调                  |
+| `afterUpdate`                 | `axis`    | 更新结束后回调                    |
 
-## Updating Axis Defaults
+## 更新坐标轴默认值
 
-The default configuration for a scale can be easily changed using the scale service. All you need to do is to pass in a partial configuration that will be merged with the current scale default configuration to form the new default.
+默认配置的刻度可以使用scale service更改。只需传入部分配置片段，和当前默认配置合并，形成新的配置。
 
-For example, to set the minimum value of 0 for all linear scales, you would do the following. Any linear scales created after this time would now have a minimum of 0.
+例如，要为所有线性比例设置最小值0，您可以执行以下操作。在此之后创建的任何线性比例都具有最小值0。
 
 ```javascript
 Chart.scaleService.updateScaleDefaults("linear", {
@@ -56,6 +56,6 @@ Chart.scaleService.updateScaleDefaults("linear", {
 });
 ```
 
-## Creating New Axes
+## 创建新的坐标轴
 
-To create a new axis, see the [developer docs](../developers/axes.md).
+要创建新的坐标轴，请参考[开发者文档](../developers/axes.md).

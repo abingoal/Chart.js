@@ -1,5 +1,6 @@
-# Radial Axes
+# 径向坐标轴
 
-Radial axes are used specifically for the radar and polar area chart types. These axes overlay the chart area, rather than being positioned on one of the edges. One radial axis is included by default in Chart.js.
+径向轴专门用于雷达和极地面积图表类型。这些坐标轴覆盖图表区域，而不是位于其中一个边上。 Chart.js中默认包含一个径向轴。
+
 
 * [linear](./linear.md#linear-radial-axis)

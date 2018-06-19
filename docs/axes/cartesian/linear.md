@@ -1,33 +1,32 @@
-# Linear Cartesian Axis
+# 线性笛卡尔轴
 
-The linear scale is use to chart numerical data. It can be placed on either the x or y axis. The scatter chart type automatically configures a line chart to use one of these scales for the x axis. As the name suggests, linear interpolation is used to determine where a value lies on the axis.
+线性刻度用于绘制数字数据。它可以放置在x或y轴上。散点图类型在x轴上使用此刻度后可以自动配置为折线图。顾名思义，线性插值用于确定数值在轴上的位置。
 
-## Tick Configuration Options
+## 刻度配置选项
 
-The following options are provided by the linear scale. They are all located in the `ticks` sub options. These options extend the [common tick configuration](README.md#tick-configuration).
+以下选项由linear scale提供。它们都位于`ticks`子选项中。这些选项扩展了[常用的刻度配置](README.md#tick-configuration)。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `beginAtZero` | `Boolean` | | if true, scale will include 0 if it is not already included.
-| `min` | `Number` | | User defined minimum number for the scale, overrides minimum value from data. [more...](#axis-range-settings)
-| `max` | `Number` | | User defined maximum number for the scale, overrides maximum value from data. [more...](#axis-range-settings)
-| `maxTicksLimit` | `Number` | `11` | Maximum number of ticks and gridlines to show.
-| `stepSize` | `Number` | | User defined fixed step size for the scale. [more...](#step-size)
-| `suggestedMax` | `Number` | | Adjustment used when calculating the maximum data value. [more...](#axis-range-settings)
-| `suggestedMin` | `Number` | | Adjustment used when calculating the minimum data value. [more...](#axis-range-settings)
+| 名称            | 类型      | 默认值 | 描述                                                                 |
+| --------------- | --------- | ------ | -------------------------------------------------------------------- |
+| `beginAtZero`   | `Boolean` |        | 如果为 true,则刻度会在还没设置0的时候包含0                           |
+| `min`           | `Number`  |        | 用户定义的最小刻度，覆盖数据的最小值 [更多...](#axis-range-settings) |
+| `max`           | `Number`  |        | 用户定义的最大刻度，覆盖数据的最大值 [更多...](#axis-range-settings) |
+| `maxTicksLimit` | `Number`  | `11`   | 要显示的最大刻度和网格线数量                                         |
+| `stepSize`      | `Number`  |        | 用户定义的比例尺的固定步长 [更多...](#step-size)                     |
+| `suggestedMax`  | `Number`  |        | 匹配计算最大数据值时使用[more...](#axis-range-settings)              |
+| `suggestedMin`  | `Number`  |        | 匹配计算最小数据值时使用[more...](#axis-range-settings)              |
 
-## Axis Range Settings
+## 轴范围设置
+给坐标轴设定数值范围，了解它们之间的相互作用非常重要。
 
-Given the number of axis range settings, it is important to understand how they all interact with each other.
-
-The `suggestedMax` and `suggestedMin` settings only change the data values that are used to scale the axis. These are useful for extending the range of the axis while maintaing the auto fit behaviour.
+`suggestedMax`和`suggestedMin`设置仅更改用于缩放坐标轴的数据值。这些对于扩展轴的范围同时保持自动贴合行为很有用。
 
 ```javascript
 let minDataValue = Math.min(mostNegativeValue, options.ticks.suggestedMin);
 let maxDataValue = Math.max(mostPositiveValue, options.ticks.suggestedMax);
 ```
 
-In this example, the largest positive value is 50, but the data maximum is expanded out to 100. However, because the lowest data value is below the `suggestedMin` setting, it is ignored.
+该例子中，最大的正值为50，但数据最大值扩大到了100。然而，由于最低数据值低于`suggestedMin`设置，因此该值将被忽略。
 
 ```javascript
 let chart = new Chart(ctx, {
@@ -51,13 +50,12 @@ let chart = new Chart(ctx, {
     }
 });
 ```
+与`suggested*`设置相反，`min`和`max`设置显式结束于坐标轴。设置这些时，某些数据点可能不可见。
 
-In contrast to the `suggested*` settings, the `min` and `max` settings set explicit ends to the axes. When these are set, some data points may not be visible.
+## 步长
 
-## Step Size
- If set, the scale ticks will be enumerated by multiple of stepSize, having one tick per increment. If not set, the ticks are labeled automatically using the nice numbers algorithm.
-
-This example sets up a chart with a y axis that creates ticks at `0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5`.
+如果设置该属性，则刻度标记将以stepSize的倍数枚举增加每一个刻度。如果未设置，则使用nice numbers算法自动标记。
+本示例使用y轴设置图表，创建`0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5`的刻度。
 
 ```javascript
 let options = {

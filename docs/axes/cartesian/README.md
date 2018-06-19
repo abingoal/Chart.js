@@ -1,72 +1,80 @@
-# Cartesian Axes
+# 笛卡尔轴(Cartesian Axes)
 
-Axes that follow a cartesian grid are known as 'Cartesian Axes'. Cartesian axes are used for line, bar, and bubble charts. Four cartesian axes are included in Chart.js by default.
+遵循笛卡尔网格的轴被称为“笛卡尔轴”。直角坐标轴用于折线图、条形图和气泡图。 Chart.js 中默认包含四个笛卡尔坐标轴。
 
 * [linear](./linear.md#linear-cartesian-axis)
 * [logarithmic](./logarithmic.md#logarithmic-cartesian-axis)
 * [category](./category.md#category-cartesian-axis)
 * [time](./time.md#time-cartesian-axis)
 
-# Common Configuration
+# 通用配置
 
-All of the included cartesian axes support a number of common options.
+所有包含笛卡尔轴的图表都支持多种通用选项。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `type` | `String` | | Type of scale being employed. Custom scales can be created and registered with a string key. This allows changing the type of an axis for a chart.
-| `position` | `String` | | Position of the axis in the chart. Possible values are: `'top'`, `'left'`, `'bottom'`, `'right'`
-| `id` | `String` | | The ID is used to link datasets and scale axes together. [more...](#axis-id)
-| `gridLines` | `Object` | | Grid line configuration. [more...](../styling.md#grid-line-configuration)
-| `scaleLabel` | `Object` | | Scale title configuration. [more...](../labelling.md#scale-title-configuration)
-| `ticks` | `Object` | | Tick configuration. [more...](#tick-configuration)
+| 名称         | 类型     | 默认值 | 描述                                                                   |
+| ------------ | -------- | ------ | ---------------------------------------------------------------------- |
+| `type`       | `String` |        | 图表类型                                                               |
+| `position`   | `String` |        | 轴在图表中的位置。可用的值有: `'top'`, `'left'`, `'bottom'`, `'right'` |
+| `id`         | `String` |        | 连接数据集和刻度轴的 ID [更多...](#axis-id)                            |
+| `gridLines`  | `Object` |        | 网格线配置 [更多...](../styling.md#grid-line-configuration)            |
+| `scaleLabel` | `Object` |        | 刻度文字选项 [更多...](../labelling.md#scale-title-configuration)      |
+| `ticks`      | `Object` |        | 刻度配置 [更多...](#tick-configuration)                                |
 
-## Tick Configuration
-The following options are common to all cartesian axes but do not apply to other axes.
+## 坐标轴刻度选项
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `autoSkip` | `Boolean` | `true` | If true, automatically calculates how many labels that can be shown and hides labels accordingly. Turn it off to show all labels no matter what
-| `autoSkipPadding` | `Number` | `0` | Padding between the ticks on the horizontal axis when `autoSkip` is enabled. *Note: Only applicable to horizontal scales.*
-| `labelOffset` | `Number` | `0` | Distance in pixels to offset the label from the centre point of the tick (in the y direction for the x axis, and the x direction for the y axis). *Note: this can cause labels at the edges to be cropped by the edge of the canvas*
-| `maxRotation` | `Number` | `90` | Maximum rotation for tick labels when rotating to condense labels. Note: Rotation doesn't occur until necessary. *Note: Only applicable to horizontal scales.*
-| `minRotation` | `Number` | `0` | Minimum rotation for tick labels. *Note: Only applicable to horizontal scales.*
-| `mirror` | `Boolean` | `false` | Flips tick labels around axis, displaying the labels inside the chart instead of outside. *Note: Only applicable to vertical scales.*
-| `padding` | `Number` | `10` | Padding between the tick label and the axis. *Note: Only applicable to horizontal scales.*
+以下选项对于所有直角坐标轴是通用的，但不适用于其他坐标轴。
 
-## Axis ID
-The properties `dataset.xAxisID` or `dataset.yAxisID` have to match the scale properties `scales.xAxes.id` or `scales.yAxes.id`. This is especially needed if multi-axes charts are used.
+| 名称              | 类型      | 默认值  | 描述                                                                                                                 |
+| ----------------- | --------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
+| `autoSkip`        | `Boolean` | `true`  | 如果为 true，则自动计算可以显示的标签数量并相应地隐藏其他标签。为 false 则任何时候都显示所有的标签。                 |
+| `autoSkipPadding` | `Number`  | `0`     | 启用`autoSkip`时，在水平轴上的刻度之间进行填充。 _注意: 仅适用于水平刻度_                                            |
+| `labelOffset`     | `Number`  | `0`     | 以像素为单位，用于从标记的中心点（x轴的y方向和y轴的x方向）偏移标签。_注意: 这可能会导致边缘的标签被canvas边缘裁剪掉_ |
+| `maxRotation`     | `Number`  | `90`    | 刻度标签的最大旋转角度。 注意: 必要时才会发生旋转 _注意: 仅适用于水平刻度_                                           |
+| `minRotation`     | `Number`  | `0`     | 刻度标签的最小旋转。_注意：仅适用于水平刻度_                                                                         |
+| `mirror`          | `Boolean` | `false` | 翻转坐标轴上的刻度标签，在图表内显示标签而不是外部。_注意：仅适用于垂直刻度_                                         |
+| `padding`         | `Number`  | `10`    | 在刻度标签和坐标轴之间填充。_注意：仅适用于水平刻度_                                                                 |
+
+## 坐标轴ID
+
+属性`dataset.xAxisID`或`dataset.yAxisID`必须与比例属性`scales.xAxes.id`或`scales.yAxes.id`匹配。尤其是在使用多轴图表时，这些属性尤为重要。
 
 ```javascript
 var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        datasets: [{
-            // This dataset appears on the first axis
-            yAxisID: 'first-y-axis'
-        }, {
-            // This dataset appears on the second axis
-            yAxisID: 'second-y-axis'
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                id: 'first-y-axis',
-                type: 'linear'
-            }, {
-                id: 'second-y-axis',
-                type: 'linear'
-            }]
-        }
-    }
+	type: "line",
+	data: {
+		datasets: [
+			{
+				// 该数据集出现在第一个坐标轴上
+				yAxisID: "first-y-axis"
+			},
+			{
+				// 该数据集出现在第二个坐标轴上
+				yAxisID: "second-y-axis"
+			}
+		]
+	},
+	options: {
+		scales: {
+			yAxes: [
+				{
+					id: "first-y-axis",
+					type: "linear"
+				},
+				{
+					id: "second-y-axis",
+					type: "linear"
+				}
+			]
+		}
+	}
 });
 ```
 
-# Creating Multiple Axes
+# 创建多坐标轴
 
-With cartesian axes, it is possible to create multiple X and Y axes. To do so, you can add multiple configuration objects to the `xAxes` and `yAxes` properties. When adding new axes, it is important to ensure that you specify the type of the new axes as default types are **not** used in this case.
+使用笛卡尔坐标轴，可以创建多个X轴和Y轴。 为此，您可以将多个配置对象添加到`xAxes`和`yAxes`属性。 在添加新坐标轴时，请确保指定新坐标轴的类型，因为在这种情况下，默认类型是 **not**。
 
-In the example below, we are creating two Y axes. We then use the `yAxisID` property to map the datasets to their correct axes.
+在下面的例子中，我们创建了两个Y轴。然后我们使用`yAxisID`属性将数据集映射到正确的坐标轴。
 
 ```javascript
 var myChart = new Chart(ctx, {
@@ -76,13 +84,13 @@ var myChart = new Chart(ctx, {
             data: [20, 50, 100, 75, 25, 0],
             label: 'Left dataset'
 
-            // This binds the dataset to the left y axis
+            // 将数据集绑定到左侧的y轴
             yAxisID: 'left-y-axis'
         }, {
             data: [0.1, 0.5, 1.0, 2.0, 1.5, 0]
             label: 'Right dataset'
 
-            // This binds the dataset to the right y axis
+            // 将数据及绑定到右侧的y轴
             yAxisID: 'right-y-axis',
         }],
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']

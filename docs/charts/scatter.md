@@ -41,7 +41,7 @@ var scatterChart = new Chart(ctx, {
 
 ## 数据集属性
 
-散点图支持与[折线图(line chart)(./line.md#dataset-properties)]相同的所有属性。
+散点图支持与[折线图(line chart)](./line.md#dataset-properties)相同的所有属性。
 
 ## 数据结构
 

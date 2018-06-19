@@ -1,31 +1,31 @@
-# Time Cartesian Axis
+# 时间笛卡尔轴
 
-The time scale is used to display times and dates. When building its ticks, it will automatically calculate the most comfortable unit base on the size of the scale.
+时间刻度用于显示时间和日期。当建立刻度时，它会自动计算出尺度上最合适的单位。
 
-## Configuration Options
+## 刻度配置选项
 
-The following options are provided by the time scale. They are all located in the `time` sub options. These options extend the [common tick configuration](README.md#tick-configuration).
+以下选项由时间刻度提供。它们都位于`time`子选项中。这些选项扩展了[常用刻度配置](README.md#tick-configuration)。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `displayFormats` | `Object` | | Sets how different time units are displayed. [more...](#display-formats)
-| `isoWeekday` | `Boolean` | `false` | If true and the unit is set to 'week', iso weekdays will be used.
-| `max` | [Time](#date-formats) | | If defined, this will override the data maximum
-| `min` | [Time](#date-formats) | | If defined, this will override the data minimum
-| `parser` | `String` or `Function` | | Custom parser for dates. [more...](#parser)
-| `round` | `String` | `false` | If defined, dates will be rounded to the start of this unit. See [Time Units](#scales-time-units) below for the allowed units.
-| `tooltipFormat` | `String` | | The moment js format string to use for the tooltip.
-| `unit` | `String` | `false` | If defined, will force the unit to be a certain type. See [Time Units](#scales-time-units) section below for details.
-| `unitStepSize` | `Number` | `1` | The number of units between grid lines.
-| `minUnit` | `String` | `millisecond` | The minimum display format to be used for a time unit.
+| 名称             | 类型                   | 默认值        | 描述                                                                                                       |
+| ---------------- | ---------------------- | ------------- | ---------------------------------------------------------------------------------------------------------- |
+| `displayFormats` | `Object`               |               | 设置不同时间单位的显示方式。[更多...](#display-formats)                                                    |
+| `isoWeekday`     | `Boolean`              | `false`       | 如果为true并且该单位设置为'week'，则将使用 iso weekdays                                                    |
+| `max`            | [Time](#date-formats)  |               | 如果定义，将覆盖数据的最大值                                                                               |
+| `min`            | [Time](#date-formats)  |               | 如果定义，这将覆盖数据的最小值                                                                             |
+| `parser`         | `String` or `Function` |               | 自定义格式化日期 [更多...](#parser)                                                                        |
+| `round`          | `String`               | `false`       | 如果定义，日期将四舍五入到该单位的开始处。请参阅下面的[时间单位](#scales-time-units)以获取所允许使用的单位 |
+| `tooltipFormat`  | `String`               |               | tooltip的日期格式化                                                                                        |
+| `unit`           | `String`               | `false`       | 如果定义，将强制该单位是某种类型。详细信息请参见下面的[时间单位](#scales-time-units)部分                   |
+| `unitStepSize`   | `Number`               | `1`           | 网格线之间的单位数量                                                                                       |
+| `minUnit`        | `String`               | `millisecond` | 用于时间单位的最小显示格式                                                                                 |
 
-## Date Formats
+## 日期格式
 
-When providing data for the time scale, Chart.js supports all of the formats that Moment.js accepts. See [Moment.js docs](http://momentjs.com/docs/#/parsing/) for details.
+在提供时间刻度的数据时，Chart.js支持Moment.js接受的所有格式。有关详细信息，请参阅[Moment.js文档](http://momentjs.com/docs/#/parsing/)。
 
-## Time Units
+## 时间单位
 
-The following time measurements are supported. The names can be passed as strings to the `time.unit` config option to force a certain unit.
+支持以下时间单位。将该单位作为字符串传递给`time.unit`以强制使用某个单位。
 
 * millisecond
 * second
@@ -37,7 +37,7 @@ The following time measurements are supported. The names can be passed as string
 * quarter
 * year
 
-For example, to create a chart with a time scale that always displayed units per month, the following config could be used.
+例如，要创建一个总是以每月显示单位的时间刻度的图表，可以使用以下配置。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -55,22 +55,23 @@ var chart = new Chart(ctx, {
 })
 ```
 
-## Display Formats
-The following display formats are used to configure how different time units are formed into strings for the axis tick marks. See [moment.js](http://momentjs.com/docs/#/displaying/format/) for the allowable format strings.
+## 显示格式
 
-Name | Default
---- | ---
-millisecond | 'SSS [ms]'
-second | 'h:mm:ss a'
-minute | 'h:mm:ss a'
-hour | 'MMM D, hA'
-day | 'll'
-week | 'll'
-month | 'MMM YYYY'
-quarter | '[Q]Q - YYYY'
-year | 'YYYY'
+以下显示格式用于配置如何将不同时间单位格式化为字符串来作为坐标轴轴刻度。有关允许的格式字符串，请参阅[moment.js](http://momentjs.com/docs/#/displaying/format/)。
 
-For example, to set the display format for the 'quarter' unit to show the month and year, the following config would be passed to the chart constructor.
+| 名称        | 默认值        |
+| ----------- | ------------- |
+| millisecond | 'SSS [ms]'    |
+| second      | 'h:mm:ss a'   |
+| minute      | 'h:mm:ss a'   |
+| hour        | 'MMM D, hA'   |
+| day         | 'll'          |
+| week        | 'll'          |
+| month       | 'MMM YYYY'    |
+| quarter     | '[Q]Q - YYYY' |
+| year        | 'YYYY'        |
+
+例如，要将'quarter'单位的显示格式设置为显示月份和年份，则可以进行以下配置。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -91,7 +92,8 @@ var chart = new Chart(ctx, {
 })
 ```
 
-## Parser
-If this property is defined as a string, it is interpreted as a custom format to be used by moment to parse the date. 
+## 解析器
 
-If this is a function, it must return a moment.js object given the appropriate data value.
+如果这个属性被定义为一个字符串，它将被解释为一个自定义的格式，以便用来解析日期。
+
+如果这是一个函数，它必须返回给定相应数据值的moment.js对象。

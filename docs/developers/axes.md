@@ -7,16 +7,14 @@ let MyScale = Chart.Scale.extend({
 	/* extensions ... */
 });
 
-// MyScale is now derived from Chart.Scale
+// MyScale现在从Chart.Scale派生而来
 ```
-
-Once you have created your scale class, you need to register it with the global chart object so that it can be used. A default config for the scale may be provided when registering the constructor. The first parameter to the register function is a string key that is used later to identify which scale type to use for a chart.
+一旦创建了scale类，就需要将其注册到全局图表对象以便可以使用它。注册构造函数时可以提供一个默认的比例配置。注册函数的第一个参数是一个string key，用于标识之后图表用哪个缩放类型。
 
 ```javascript
 Chart.scaleService.registerScaleType("myScale", MyScale, defaultConfigObject);
 ```
-
-To use the new scale, simply pass in the string key to the config when creating a chart.
+要使用新比例，只需在创建图表时将string key传递给配置。
 
 ```javascript
 var lineChart = new Chart(ctx, {
@@ -26,7 +24,7 @@ var lineChart = new Chart(ctx, {
 		scales: {
 			yAxes: [
 				{
-					type: "myScale" // this is the same key that was passed to the registerScaleType function
+					type: "myScale" // 这是传递给registerScaleType函数的相同key
 				}
 			]
 		}
@@ -34,20 +32,20 @@ var lineChart = new Chart(ctx, {
 });
 ```
 
-## Scale Properties
+## 比例属性
 
-Scale instances are given the following properties during the fitting process.
+在拟合过程中给出缩放实例的如下属性。
 
 ```javascript
 {
-    left: Number, // left edge of the scale bounding box
-    right: Number, // right edge of the bounding box'
+    left: Number, // 比例边框的左边
+    right: Number, // 比例边框的右边
     top: Number,
     bottom: Number,
-    width: Number, // the same as right - left
-    height: Number, // the same as bottom - top
+    width: Number, // 同 right - left
+    height: Number, // 同 bottom - top
 
-    // Margin on each side. Like css, this is outside the bounding box.
+	// 每个边的边距，同css，此处是外边距
     margins: {
         left: Number,
         right: Number,
@@ -55,7 +53,7 @@ Scale instances are given the following properties during the fitting process.
         bottom: Number,
     },
 
-    // Amount of padding on the inside of the bounding box (like CSS)
+	// 边框的内间距（同CSS）
     paddingLeft: Number,
     paddingRight: Number,
     paddingTop: Number,
@@ -63,73 +61,71 @@ Scale instances are given the following properties during the fitting process.
 }
 ```
 
-## Scale Interface
+## 比例接口
 
-To work with Chart.js, custom scale types must implement the following interface.
+要使用Chart.js，自定义比例类型必须实现以下接口。
 
 ```javascript
 {
-    // Determines the data limits. Should set this.min and this.max to be the data max/min
+	// 确定数据限制。应该将this.min和this.max设置为数据最大/最小值
     determineDataLimits: function() {},
 
-    // Generate tick marks. this.chart is the chart instance. The data object can be accessed as this.chart.data
-    // buildTicks() should create a ticks array on the axis instance, if you intend to use any of the implementations from the base class
+	// 生成刻度标记。 this.chart是图表实例。数据对象可以通过this.chart.data访问
+	// 如果你打算使用基类中的任何实现则buildTicks（）应该在坐标轴实例上创建一个ticks数组
     buildTicks: function() {},
 
-    // Get the value to show for the data at the given index of the the given dataset, ie this.chart.data.datasets[datasetIndex].data[index]
+	// 获取在给定数据集的给定索引处显示数据的值，即this.chart.data.datasets[datasetIndex].data [index]
     getLabelForIndex: function(index, datasetIndex) {},
 
-    // Get the pixel (x coordinate for horizontal axis, y coordinate for vertical axis) for a given value
-    // @param index: index into the ticks array
-    // @param includeOffset: if true, get the pixel halway between the given tick and the next
+	// 获取给定值的像素（水平轴的x坐标，垂直轴的y坐标）
+    // @param index: 刻度数组中的索引
+    // @param includeOffset: 如果为true，则在给定刻度与下一个刻度之间获得像素半径
     getPixelForTick: function(index, includeOffset) {},
 
-    // Get the pixel (x coordinate for horizontal axis, y coordinate for vertical axis) for a given value
-    // @param value : the value to get the pixel for
-    // @param index : index into the data array of the value
-    // @param datasetIndex : index of the dataset the value comes from
-    // @param includeOffset : if true, get the pixel halway between the given tick and the next
+    // 获取给定值的像素（水平轴的x坐标，垂直轴的y坐标）
+    // @param value : 获取像素的值
+    // @param index : 数据值在数据数组中的索引
+    // @param datasetIndex : 索引的数据来源
+    // @param includeOffset : 如果为true，则在给定刻度与下一个刻度之间获得像素半径
     getPixelForValue: function(value, index, datasetIndex, includeOffset) {}
 
-    // Get the value for a given pixel (x coordinate for horizontal axis, y coordinate for vertical axis)
-    // @param pixel : pixel value
+    // 获取给定像素的值（水平轴的x坐标，垂直轴的y坐标）
+    // @param pixel : 像素值
     getValueForPixel: function(pixel) {}
 }
 ```
-
-Optionally, the following methods may also be overwritten, but an implementation is already provided by the `Chart.Scale` base class.
+可选地，以下方法也可能被覆盖，但`Chart.Scale`基类已经提供了一个实现。
 
 ```javascript
-    // Transform the ticks array of the scale instance into strings. The default implementation simply calls this.options.ticks.callback(numericalTick, index, ticks);
+	// 将缩放实例的刻度数组转换为字符串。默认实现简单地调用this.options.ticks.callback（numericalTick，index，ticks）
     convertTicksToLabels: function() {},
 
-    // Determine how much the labels will rotate by. The default implementation will only rotate labels if the scale is horizontal.
+	// 确定标签将旋转多少。默认实现将只在标尺水平时旋转标签。
     calculateTickRotation: function() {},
 
-    // Fits the scale into the canvas.
-    // this.maxWidth and this.maxHeight will tell you the maximum dimensions the scale instance can be. Scales should endeavour to be as efficient as possible with canvas space.
-    // this.margins is the amount of space you have on either side of your scale that you may expand in to. This is used already for calculating the best label rotation
-    // You must set this.minSize to be the size of your scale. It must be an object containing 2 properties: width and height.
-    // You must set this.width to be the width and this.height to be the height of the scale
+	// 依canvas适配比例
+	// this.maxWidth和this.maxHeight会告诉你scale实例可以达到的最大尺寸。比例尺应尽可能使用画布空间。
+	// this.margins是您可以扩展到的scale两侧的空间量。这已经用于计算最佳标签旋转。
+    // 必须将this.minSize设置为您的比例尺寸。它必须是包含2个属性的对象：width和height。
+    // 必须将this.width设置为宽度，this.height为scale的高度
     fit: function() {},
-
-    // Draws the scale onto the canvas. this.(left|right|top|bottom) will have been populated to tell you the area on the canvas to draw in
-    // @param chartArea : an object containing four properties: left, right, top, bottom. This is the rectangle that lines, bars, etc will be drawn in. It may be used, for example, to draw grid lines.
+	// 将比例绘制到canvas上。this.(left|right|top|bottom)将被填充以告诉你canvas上的区域进行绘制
+    // @param chartArea : 一个包含四个属性的对象：left, right, top, bottom。折线图，条形图等将被绘制在该区域。例如，它可以用于绘制网格线。
     draw: function(chartArea) {},
 ```
 
-The Core.Scale base class also has some utility functions that you may find useful.
+Core.Scale基类还有一些实用功能，可能会对你有所帮助。
 
 ```javascript
 {
-    // Returns true if the scale instance is horizontal
+    // 如果scale实例是水平的，则返回true
     isHorizontal: function() {},
 
-    // Get the correct value from the value from this.chart.data.datasets[x].data[]
-    // If dataValue is an object, returns .x or .y depending on the return of isHorizontal()
-    // If the value is undefined, returns NaN
-    // Otherwise returns the value.
-    // Note that in all cases, the returned value is not guaranteed to be a Number
+    // 从this.chart.data.datasets [x] .data []中获取正确的值
+    // 如果dataValue是一个对象，则返回.x或.y，具体取决于isHorizo​​ntal（）的返回值
+    // 如果该值未定义，则返回NaN
+    // 否则返回该值
+    // 请注意，在任何情况下，返回的值不能保证一定是个数字
     getRightValue: function(dataValue) {},
 }
 ```

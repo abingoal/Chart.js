@@ -1,38 +1,38 @@
 # 样式(Styling)
 
-There are a number of options to allow styling an axis. There are settings to control [grid lines](#grid-line-configuration) and [ticks](#tick-configuration).
+有许多选项可用于设置坐标轴的样式。以下是设置[网格线](#grid-line-configuration)和[刻度](#tick-configuration)的配置。
 
-## Grid Line Configuration
+## 网格线配置
 
-The grid line configuration is nested under the scale configuration in the `gridLines` key. It defines options for the grid lines that run perpendicular to the axis.
+网格线配置嵌套在`gridLines`配置下。它定义垂直于轴线的网格线的选项。
 
-| Name                       | Type                 | Default                 | Description                                                                                                                                                                   |
-| -------------------------- | -------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `display`                  | `Boolean`            | `true`                  | If false, do not display grid lines for this axis.                                                                                                                            |
-| `color`                    | Color or Color[]     | `'rgba(0, 0, 0, 0.1)'`  | The color of the grid lines. If specified as an array, the first color applies to the first grid line, the second to the second grid line and so on.                          |
-| `borderDash`               | `Number[]`           | `[]`                    | Length and spacing of dashes on grid lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)                                  |
-| `borderDashOffset`         | `Number`             | `0`                     | Offset for line dashes. See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)                                                   |
-| `lineWidth`                | `Number or Number[]` | `1`                     | Stroke width of grid lines.                                                                                                                                                   |
-| `drawBorder`               | `Boolean`            | `true`                  | If true, draw border at the edge between the axis and the chart area.                                                                                                         |
-| `drawOnChartArea`          | `Boolean`            | `true`                  | If true, draw lines on the chart area inside the axis lines. This is useful when there are multiple axes and you need to control which grid lines are drawn.                  |
-| `drawTicks`                | `Boolean`            | `true`                  | If true, draw lines beside the ticks in the axis area beside the chart.                                                                                                       |
-| `tickMarkLength`           | `Number`             | `10`                    | Length in pixels that the grid lines will draw into the axis area.                                                                                                            |
-| `zeroLineWidth`            | `Number`             | `1`                     | Stroke width of the grid line for the first index (index 0).                                                                                                                  |
-| `zeroLineColor`            | Color                | `'rgba(0, 0, 0, 0.25)'` | Stroke color of the grid line for the first index (index 0).                                                                                                                  |
-| `zeroLineBorderDash`       | `Number[]`           | `[]`                    | Length and spacing of dashes of the grid line for the first index (index 0). See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash) |
-| `zeroLineBorderDashOffset` | `Number`             | `0`                     | Offset for line dashes of the grid line for the first index (index 0). See [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)    |
-| `offsetGridLines`          | `Boolean`            | `false`                 | If true, labels are shifted to be between grid lines. This is used in the bar chart and should not generally be used.                                                         |
+| 名称                       | 类型                 | 默认值                  | 描述                                                                                                                                                |
+| -------------------------- | -------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `display`                  | `Boolean`            | `true`                  | 如果为false，则不显示该轴的网格线                                                                                                                   |
+| `color`                    | `Color or Color[]`   | `'rgba(0, 0, 0, 0.1)'`  | 网格线的颜色。如果指定为数组，则第一种颜色适用于第一个网格线，第二种适用于第二个网格线，依此类推                                                    |
+| `borderDash`               | `Number[]`           | `[]`                    | 网格线上的折号的长度和间距。 参看 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash)                      |
+| `borderDashOffset`         | `Number`             | `0`                     | 线破折号的偏移量 参见 [MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)                               |
+| `lineWidth`                | `Number or Number[]` | `1`                     | 网格线的行程宽度                                                                                                                                    |
+| `drawBorder`               | `Boolean`            | `true`                  | 如果为true，则在坐标轴和图表区域之间的边缘绘制边框                                                                                                  |
+| `drawOnChartArea`          | `Boolean`            | `true`                  | 如果为true，则在轴线内的图表区域绘制线条。当有多个轴并且您需要控制绘制哪些网格线时，该选项将会很有帮助                                              |
+| `drawTicks`                | `Boolean`            | `true`                  | 如果为true，则在图表旁边的轴区域中的刻度旁绘制线条                                                                                                  |
+| `tickMarkLength`           | `Number`             | `10`                    | 绘制到坐标轴区域内的网格线的长度(以像素为单位)                                                                                                      |
+| `zeroLineWidth`            | `Number`             | `1`                     | 第一个索引（索引0）的网格线的行绘制宽度                                                                                                             |
+| `zeroLineColor`            | Color                | `'rgba(0, 0, 0, 0.25)'` | 第一个索引（索引0）的网格线的绘制颜色                                                                                                               |
+| `zeroLineBorderDash`       | `Number[]`           | `[]`                    | 第一个索引（索引0）的网格线的连接号的长度和间距。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setLineDash) |
+| `zeroLineBorderDashOffset` | `Number`             | `0`                     | 第一个索引（索引0）的网格线的连接号。请参阅[MDN](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineDashOffset)          |
+| `offsetGridLines`          | `Boolean`            | `false`                 | 如果为true，则将标签移动到网格线之间。一般用于条形图中，通常不应使用。              `                                                               |
 
-## Tick Configuration
+##  刻度配置
 
-The tick configuration is nested under the scale configuration in the `ticks` key. It defines options for the tick marks that are generated by the axis.
+tick配置嵌套在`ticks`配置下的scale配置。其定义了坐标轴生成的刻度线的选项。
 
-| Name         | Type       | Default                                                | Description                                                                                                                                                    |
-| ------------ | ---------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `callback`   | `Function` |                                                        | Returns the string representation of the tick value as it should be displayed on the chart. See [callback](../axes/labelling.md#creating-custom-tick-formats). |
-| `display`    | `Boolean`  | `true`                                                 | If true, show tick marks                                                                                                                                       |
-| `fontColor`  | Color      | `'#666'`                                               | Font color for tick labels.                                                                                                                                    |
-| `fontFamily` | `String`   | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | Font family for the tick labels, follows CSS font-family options.                                                                                              |
-| `fontSize`   | `Number`   | `12`                                                   | Font size for the tick labels.                                                                                                                                 |
-| `fontStyle`  | `String`   | `'normal'`                                             | Font style for the tick labels, follows CSS font-style options (i.e. normal, italic, oblique, initial, inherit).                                               |
-| `reverse`    | `Boolean`  | `false`                                                | Reverses order of tick labels.                                                                                                                                 |
+| 名称         | 类型       | 默认值                                                 | 描述                                                                                                           |
+| ------------ | ---------- | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| `callback`   | `Function` |                                                        | 返回应在图表上显示的刻度值(字符串表示形式) 参考 [callback](../axes/labelling.md#creating-custom-tick-formats). |
+| `display`    | `Boolean`  | `true`                                                 | 如果为true，则显示刻度标记                                                                                     |
+| `fontColor`  | Color      | `'#666'`                                               | 刻度标签字体颜色                                                                                               |
+| `fontFamily` | `String`   | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 刻度标签的字体，遵循CSS字体家族选项                                                                            |
+| `fontSize`   | `Number`   | `12`                                                   | 刻度标签的字体大小                                                                                             |
+| `fontStyle`  | `String`   | `'normal'`                                             | 刻度标签的字体样式，遵循CSS字体样式选项（即normal, italic, oblique, initial, inherit)                          |
+| `reverse`    | `Boolean`  | `false`                                                | 刻度标签反序                                                                                                   |

@@ -1,12 +1,12 @@
-# Logarithmic Cartesian Axis
+# 对数笛卡尔轴
 
-The logarithmic scale is use to chart numerical data. It can be placed on either the x or y axis. As the name suggests, logarithmic interpolation is used to determine where a value lies on the axis.
+对数刻度用于绘制数字数据。它可以放置在x或y轴上。顾名思义，使用对数插值来确定数值在轴上的位置。
 
-## Tick Configuration Options
+## 刻度配置选项
 
-The following options are provided by the logarithmic scale. They are all located in the `ticks` sub options. These options extend the [common tick configuration](README.md#tick-configuration).
+下列选项由对数刻度提供。它们都位于`ticks`子选项中。这些选项扩展了[常用刻度配置](README.md#tick-configuration)。
 
-| Name | Type | Default | Description
-| -----| ---- | --------| -----------
-| `min` | `Number` | | User defined minimum number for the scale, overrides minimum value from data.
-| `max` | `Number` | | User defined maximum number for the scale, overrides maximum value from data.
+| 名称  | 类型     | 默认值 | 描述                                                                          |
+| ----- | -------- | ------ | ----------------------------------------------------------------------------- |
+| `min` | `Number` |        | 用户定义的最小刻度值，覆盖数据的最小值。 |
+| `max` | `Number` |        | 用户定义的最大刻度值，覆盖数据的最大值。 |

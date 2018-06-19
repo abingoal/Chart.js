@@ -1,68 +1,68 @@
 # 新的图表(New Charts)
 
-Chart.js 2.0 introduces the concept of controllers for each dataset. Like scales, new controllers can be written as needed.
+Chart.js 2.0为每个数据集引入了控制器的概念。像scales一样，可以根据需要编写新的控制器。
 
 ```javascript
 Chart.controllers.MyType = Chart.DatasetController.extend({});
 
-// Now we can create a new instance of our chart, using the Chart.js API
+// 现在我们可以使用Chart.js API创建图表的一个新实例
 new Chart(ctx, {
-	// this is the string the constructor was registered at, ie Chart.controllers.MyType
+	// 这是构造函数注册的字符串，即Chart.controllers.MyType
 	type: "MyType",
 	data: data,
 	options: options
 });
 ```
 
-## Dataset Controller Interface
+## 数据集控制器接口
 
-Dataset controllers must implement the following interface.
+数据集控制器必须实现以下接口
 
 ```javascript
 {
-    // Create elements for each piece of data in the dataset. Store elements in an array on the dataset as dataset.metaData
+    // 为数据集中的每条数据创建元素。将数据集中的元素作为dataset.metaData存储在数据集中
     addElements: function() {},
 
-    // Create a single element for the data at the given index and reset its state
+    // 为给定索引处的数据创建单个元素并重置其状态
     addElementAndReset: function(index) {},
 
-    // Draw the representation of the dataset
-    // @param ease : if specified, this number represents how far to transition elements. See the implementation of draw() in any of the provided controllers to see how this should be used
+    // 绘制数据集的表示形式
+    // @param ease : 如果指定该参数，则此数字代表转换元素的距离。在任何提供的控制器中查看 draw（）的实现以了解如何使用它
     draw: function(ease) {},
 
-    // Remove hover styling from the given element
+    // 从给定元素删除悬停样式
     removeHoverStyle: function(element) {},
 
-    // Add hover styling to the given element
+    // 将悬停样式添加到给定的元素
     setHoverStyle: function(element) {},
 
-    // Update the elements in response to new data
-    // @param reset : if true, put the elements into a reset state so they can animate to their final values
+    // 更新元素以响应新数据
+    // @param reset : 如果为true，则将元素置于复位状态，以便它们可以持续动画直到其最终值
     update: function(reset) {},
 }
 ```
 
-The following methods may optionally be overridden by derived dataset controllers
+派生数据集控制器可以选择覆盖以下方法
 
 ```javascript
 {
-    // Initializes the controller
+    // 初始化控制器
     initialize: function(chart, datasetIndex) {},
 
-    // Ensures that the dataset represented by this controller is linked to a scale. Overridden to helpers.noop in the polar area and doughnut controllers as these
-    // chart types using a single scale
+	// 确保由此控制器表示的数据集链接到一个scale。覆盖极地图的helpers.noop和doughnut控制器
+    // 使用单一比例的图表类型
     linkScales: function() {},
 
-    // Called by the main chart controller when an update is triggered. The default implementation handles the number of data points changing and creating elements appropriately.
+	// 当更新被触发时，由主图表控制器调用。默认实现处理更改数据点的数量并适当地创建元素。
     buildOrUpdateElements: function() {}
 }
 ```
 
-## Extending Existing Chart Types
+## 扩展现有的图表类型
 
-Extending or replacing an existing controller type is easy. Simply replace the constructor for one of the built in types with your own.
+扩展或替换现有的控制器类型非常简单。只需用您自己的内置类型替换其中一种内置类型的构造函数即可。
 
-The built in controller types are:
+内置的控制器类型:
 
 * `Chart.controllers.line`
 * `Chart.controllers.bar`
@@ -71,21 +71,21 @@ The built in controller types are:
 * `Chart.controllers.polarArea`
 * `Chart.controllers.bubble`
 
-For example, to derive a new chart type that extends from a bubble chart, you would do the following.
+例如，要派生一个从气泡图扩展而来的新图表类型，您可以执行以下操作。
 
 ```javascript
-// Sets the default config for 'derivedBubble' to be the same as the bubble defaults.
-// We look for the defaults by doing Chart.defaults[chartType]
-// It looks like a bug exists when the defaults don't exist
+// 将'derivedBubble'的默认配置设置为与气泡值默认值相同。
+// 我们通过执行Chart.defaults [chartType]来查找默认值
+// 这里好像是个bug，当默认值不存在的时候
 Chart.defaults.derivedBubble = Chart.defaults.bubble;
 
-// I think the recommend using Chart.controllers.bubble.extend({ extensions here });
+// 我认为推荐使用Chart.controllers.bubble.extend（{extensions here};
 var custom = Chart.controllers.bubble.extend({
 	draw: function(ease) {
-		// Call super method first
+		// 先调用super方法
 		Chart.controllers.bubble.prototype.draw.call(this, ease);
 
-		// Now we can do some custom drawing for this dataset. Here we'll draw a red box around the first point in each dataset
+		// 现在我们可以为这个数据集做一些自定义绘图。在这里我们将围绕每个数据集中的第一个点绘制一个红色框
 		var meta = this.getMeta();
 		var pt0 = meta.data[0];
 		var radius = pt0._view.radius;
@@ -104,11 +104,11 @@ var custom = Chart.controllers.bubble.extend({
 	}
 });
 
-// Stores the controller so that the chart initialization routine can look it up with
+// 存储控制器以便图表初始化程序可以查找它
 // Chart.controllers[type]
 Chart.controllers.derivedBubble = custom;
 
-// Now we can create and use our new chart type
+// 现在我们可以创建和使用我们的新图表类型
 new Chart(ctx, {
 	type: "derivedBubble",
 	data: data,
@@ -116,6 +116,6 @@ new Chart(ctx, {
 });
 ```
 
-### Bar Controller
+### 条形图控制器
 
-The bar controller has a special property that you should be aware of. To correctly calculate the width of a bar, the controller must determine the number of datasets that map to bars. To do this, the bar controller attaches a property `bar` to the dataset during initialization. If you are creating a replacement or updated bar controller, you should do the same. This will ensure that charts with regular bars and your new derived bars will work seamlessly.
+条形图控制器有一个你应该知道的特殊属性。要正确计算条形的宽度，控制器必须确定映射到条的数据集的数量。为此，条形控制器在初始化期间将属性`bar`附加到数据集。当创建或更新条形控制器时，使用这种方式来做。以确保具有常规条形图和新的派生条形的图表能够无缝工作。
