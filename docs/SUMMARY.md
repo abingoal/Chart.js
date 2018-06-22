@@ -28,6 +28,7 @@
     * [气泡图(bubble)](charts/bubble.md)
     * [离散图(scatter)](charts/scatter.md)
     * [混合图表(mixed)](charts/mixed.md)
+    * [区域图](charts/area.md)
 * [坐标轴](axes/README.md)
     * [笛卡尔坐标(cartesian)](axes/cartesian/README.md)
         * [类别(category)](axes/cartesian/category.md)

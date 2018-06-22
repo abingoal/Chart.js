@@ -29,6 +29,22 @@ Chart.defaults.global.elements.rectangle.borderWidth = 2;
 | `hoverRadius`      | `Number` | `4`                 | 悬浮时的点半径         |
 | `hoverBorderWidth` | `Number` | `1`                 | 悬浮时的边框宽度       |
 
+### 数据点样式
+
+支持以下值：
+- `'circle'`
+- `'cross'`
+- `'crossRot'`
+- `'dash'`
+- `'line'`
+- `'rect'`
+- `'rectRounded'`
+- `'rectRot'`
+- `'star'`
+- `'triangle'`
+
+如果值是图像，则使用[drawImage]((https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage))在canvas上绘制该图像。
+
 ## 折线配置
 
 线元素用于表示折线图中的线。

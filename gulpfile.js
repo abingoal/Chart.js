@@ -169,6 +169,13 @@ function lintTask() {
 		.pipe(eslint.failAfterError());
 }
 
+function lintHtmlTask() {
+  return gulp.src('samples/**/*.html')
+    .pipe(htmllint({
+      failOnError: true,
+    }));
+}
+
 function docsTask(done) {
 	const script = require.resolve("gitbook-cli/bin/gitbook.js");
 	const cmd = process.execPath;

@@ -1,7 +1,9 @@
 # 颜色
-当向Chart选项提供颜色时，可以使用多种格式。 您可以将颜色指定为十六进制、RGB或HSL。 
+当向Chart选项提供颜色时，可以使用多种格式。 您可以将颜色指定为十六进制、RGB或HSL。
 如果未指定颜色，Chart.js将使用全局默认颜色。 此颜色存储在`Chart.defaults.global.defaultColor`中。
-初始值为`rgba（0，0，0，0.1）`。 您也可以传递[CanvasGradient](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient)对象。 在传递到图表之前，你需要先创建它以实现一些有趣的效果。
+初始值为`rgba（0，0，0，0.1）`。
+
+您也可以传递[CanvasGradient](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient)对象。 在传递到图表之前，你需要先创建它以实现一些有趣的效果。
 
 ## 图案和渐变
 一个替代选项是传递[CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)或[CanvasGradient](https://developer.mozilla.org/en/docs/Web/API/CanvasGradient)对象，而不是字符串颜色。

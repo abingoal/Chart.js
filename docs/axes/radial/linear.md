@@ -60,7 +60,7 @@ let chart = new Chart(ctx, {
     options: {
         scale: {
             ticks: {
-                suggestedMin: 50
+                suggestedMin: 50,
                 suggestedMax: 100
             }
         }

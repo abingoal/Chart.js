@@ -4,26 +4,26 @@
 
 {% chartjs %}
 {
-"type": "line",
-"data": {
-"labels": [
-"January",
-"February",
-"March",
-"April",
-"May",
-"June",
-"July"
-],
-"datasets": [{
-"label": "My First Dataset",
-"data": [65, 59, 80, 81, 56, 55, 40],
-"fill": false,
-"borderColor": "rgb(75, 192, 192)",
-"lineTension": 0.1
-}]
-},
-"options": {
+    "type": "line",
+    "data": {
+        "labels": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July"
+        ],
+        "datasets": [{
+            "label": "My First Dataset",
+            "data": [65, 59, 80, 81, 56, 55, 40],
+            "fill": false,
+            "borderColor": "rgb(75, 192, 192)",
+            "lineTension": 0.1
+        }]
+    },
+    "options": {
 
     }
 
@@ -86,33 +86,6 @@ var myLineChart = new Chart(ctx, {
 
 如果保持不变（`undefined`），则使用全局`·options.elements.line.cubicInterpolationMode`属性。
 
-### fill
-
-如果为`true`，则填写该行下面的区域。该行被填充到基线。如果 y 轴有一个 0 值，那么该行就被填充到该点。如果该轴只有负值，则该线将填充到最高值。如果轴只有正值，则将其填充到最低值。
-
-要填充到特定位置的字符串值：
-
-* `'zero'`
-* `'top'`
-* `'bottom'`
-
-### pointStyle
-
-数据点的样式选项如下：
-
-* 'circle'
-* 'cross'
-* 'crossRot'
-* 'dash'.
-* 'line'
-* 'rect'
-* 'rectRounded'
-* 'rectRot'
-* 'star'
-* 'triangle'
-
-如果选项是图片，则使用[drawImage](https://developer.mozilla.org/en/docs/Web/API/CanvasRenderingContext2D/drawImage)在 canvas 上绘制该图像。
-
 ### Stepped Line
 
 `stepsLine`支持以下值:
@@ -146,7 +119,7 @@ Chart.defaults.line.spanGaps = true;
 
 ## 数据结构
 
-线形图数据集的数据属性可以使用两种方式。
+线形图数据集的`data`属性可以使用两种方式。
 
 ### Number[]
 

@@ -7,4 +7,5 @@ hover配置通过`options.hover`改变。全局hover配置位于`Chart.defaults.
 | ---- | ---- | ------- | -----------
 | `mode` | `String` | `'nearest'` | 设置工具提示中出现的元素。有关详细信息，请参考[交互模式](./modes.md#interaction-modes)。
 | `intersect` | `Boolean` | `true` | 如果为`true`，则hover仅适用于鼠标位置的图表进行相交。
+| `axis` | `String` | `'x'` | 可以设置为`'x'`，`'y'`或`'xy'`来定义计算距离时使用的方向。 `index`模式默认为`'x'`，`dataset`和`nearest`模式默认为`'xy'`。
 | `animationDuration` | `Number` | `400` | hover动画时间（毫秒单位））

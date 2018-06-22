@@ -56,11 +56,6 @@ new Chart(ctx, {
 
 这些是特定于极地图的自定义选项。这些选项与[全局图表配置](#global-chart-configuration)选项合并，组成图表的最终选项。
 
-| 名称                      | 类型      | 默认值           | 描述                                                                             |
-| ------------------------- | --------- | ---------------- | -------------------------------------------------------------------------------- |
-| `startAngle`              | `Number`  | `-0.5 * Math.PI` | 数据集中的第一个项目绘制时的起始角度                                             |
-| `animation.animateRotate` | `Boolean` | `true`           | 如果为 true，则图表将使用旋转动画进行动画。该属性位于`options.animation`对象中。 |
-| `animation.animateScale`  | `Boolean` | `true`           | 如果为 true，则显示从中心向外缩放图表的动画。                                    |
 
 ## 默认选项
 

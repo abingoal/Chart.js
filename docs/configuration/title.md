@@ -6,18 +6,19 @@
 
 标题在`options.title`中配置。图表标题的全局选项在`Chart.defaults.global.title`中定义。
 
-| 名称         | 类型      | 默认值                                                 | 描述                         |
-| ------------ | --------- | ------------------------------------------------------ | ---------------------------- |
-| `display`    | `Boolean` | `false`                                                | 是否显示标题                 |
-| `position`   | `String`  | `'top'`                                                | 标题未知[更多...](#position) |
-| `fontSize`   | `Number`  | `12`                                                   | 字体大小                     |
-| `fontFamily` | `String`  | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 字体集                       |
-| `fontColor`  | Color     | `'#666'`                                               | 字体颜色                     |
-| `fontStyle`  | `String`  | `'bold'`                                               | 字体样式                     |
-| `padding`    | `Number`  | `10`                                                   | 标题文本上下方间距           |
-| `text`       | `String`  | `''`                                                   | 标题文字                     |
+| 名称         | 类型              | 默认值                                                 | 描述                                                                                      |
+| ------------ | ----------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| `display`    | `Boolean`         | `false`                                                | 是否显示标题                                                                              |
+| `position`   | `String`          | `'top'`                                                | 标题未知[更多...](#position)                                                              |
+| `fontSize`   | `Number`          | `12`                                                   | 字体大小                                                                                  |
+| `fontFamily` | `String`          | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 字体集                                                                                    |
+| `fontColor`  | Color             | `'#666'`                                               | 字体颜色                                                                                  |
+| `fontStyle`  | `String`          | `'bold'`                                               | 字体样式                                                                                  |
+| `padding`    | `Number`          | `10`                                                   | 标题文本上下方间距                                                                        |
+| `lineHeight` | `Number/String`   | `1.2`                                                  | 单行文本的高度 (参见 [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)) |
+| `text`       | `String/String[]` | `''`                                                   | 标题文字                                                                                  |
 
-### 未知
+### 位置
 
 可用的标题位置为:
 

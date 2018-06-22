@@ -82,13 +82,13 @@ var myChart = new Chart(ctx, {
     data: {
         datasets: [{
             data: [20, 50, 100, 75, 25, 0],
-            label: 'Left dataset'
+            label: 'Left dataset',
 
             // 将数据集绑定到左侧的y轴
             yAxisID: 'left-y-axis'
         }, {
-            data: [0.1, 0.5, 1.0, 2.0, 1.5, 0]
-            label: 'Right dataset'
+            data: [0.1, 0.5, 1.0, 2.0, 1.5, 0],
+            label: 'Right dataset',
 
             // 将数据及绑定到右侧的y轴
             yAxisID: 'right-y-axis',

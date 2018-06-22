@@ -19,13 +19,6 @@
 ## 轴范围设置
 给坐标轴设定数值范围，了解它们之间的相互作用非常重要。
 
-`suggestedMax`和`suggestedMin`设置仅更改用于缩放坐标轴的数据值。这些对于扩展轴的范围同时保持自动贴合行为很有用。
-
-```javascript
-let minDataValue = Math.min(mostNegativeValue, options.ticks.suggestedMin);
-let maxDataValue = Math.max(mostPositiveValue, options.ticks.suggestedMax);
-```
-
 该例子中，最大的正值为50，但数据最大值扩大到了100。然而，由于最低数据值低于`suggestedMin`设置，因此该值将被忽略。
 
 ```javascript
@@ -42,7 +35,7 @@ let chart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    suggestedMin: 50
+                    suggestedMin: 50,
                     suggestedMax: 100
                 }
             }]

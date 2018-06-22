@@ -26,3 +26,7 @@ let chart = new Chart(ctx, {
 | `defaultFontFamily` | `String` | `"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"` | 默认字体集
 | `defaultFontSize` | `Number` | `12` | 文本的默认字体大小（以px为单位）。不适用于径向线性刻度标签。
 | `defaultFontStyle` | `String` | `'normal'` | 默认字体样式。不适用于工具提示标题或页脚。不适用于图表标题。
+
+## 不存在的字体
+
+如果为系统上存在的图表指定了字体，则浏览器在设置时不会应用该字体。 如果您发现图表中出现奇怪的字体，请检查您正在应用的字体是否存在于您的系统中。 有关更多详细信息，请参见[issue 3318]((https://github.com/chartjs/Chart.js/issues/3318)。

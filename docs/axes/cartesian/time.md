@@ -46,6 +46,7 @@ var chart = new Chart(ctx, {
     options: {
         scales: {
             xAxes: [{
+                type: 'time',
                 time: {
                     unit: 'month'
                 }
