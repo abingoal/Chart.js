@@ -110,7 +110,7 @@ var chart = new Chart(ctx, {
 
 ## 插件核心 API
 
-可用钩子 (从 2.5 版本开始):
+可用钩子 (从 2.6 版本开始):
 
 * beforeInit
 * afterInit
@@ -121,12 +121,18 @@ var chart = new Chart(ctx, {
 * beforeDatasetsUpdate _(cancellable)_
 * afterDatasetsUpdate
 * beforeRender _(cancellable)_
+* beforeDatasetUpdate *(cancellable)*
+* afterDatasetUpdate
+* beforeRender *(cancellable)*
 * afterRender
 * beforeDraw _(cancellable)_
 * afterDraw
 * beforeDatasetsDraw _(cancellable)_
 * afterDatasetsDraw
 * beforeEvent _(cancellable)_
+* beforeDatasetDraw *(cancellable)*
+* afterDatasetDraw
+* beforeEvent *(cancellable)*
 * afterEvent
 * resize
 * destroy

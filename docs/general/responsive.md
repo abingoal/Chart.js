@@ -19,9 +19,8 @@ Chart.js提供了几个[选项](#configuration-option)，通过检测画布显�
 
 ## 重要提示
 
-不能直接从`CANVAS`元素检测画布尺寸何时改变。Chart.js使用其父容器来更新canvas渲染和显示大小。然而，该方法要求容器相对定位。强烈建议将此容器专用于图表canvas,然后可以通过设置容器大小的相对值来实现响应：
+不能直接从`CANVAS`元素检测画布尺寸何时改变。Chart.js使用其父容器来更新canvas渲染和显示大小。然而，该方法要求容器相对定位。强烈建议将此容器专用于图表canvas,然后可以通过设置容器大小的相对值来实现响应：[例子](https://codepen.io/chartjs/pen/YVWZbz)
 
-[例如](https://codepen.io/chartjs/pen/YVWZbz)
 ```html
 <div class="chart-container" style="position: relative; height:40vh; width:80vw">
     <canvas id="chart"></canvas>
@@ -31,4 +30,16 @@ Chart.js提供了几个[选项](#configuration-option)，通过检测画布显�
 
 ```javascript
 chart.canvas.parentNode.style.height = '128px';
+```
+
+## 打印可调整大小的图表
+
+打印页面时，允许CSS媒体查询更改样式。从这些媒体查询中应用的CSS可能会导致图表需要调整大小。但是，调整大小不会自动发生。 要在打印时支持调整图表大小，您需要使用[onbeforeprint](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeprint)事件钩子并手动触发每个图表的大小调整。
+
+```javascript
+function beforePrintHandler () {
+  for (var id in Chart.instances) {
+    Chart.instances[id].resize()
+  }
+}
 ```

@@ -11,7 +11,7 @@
 然后需要在页面中引用Chart.js
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 ```
 现在我们就可以创建一个图表了，在页面中添加以下脚本：
 
@@ -41,4 +41,4 @@ var chart = new Chart(ctx, {
 
 接下来的文档可以帮助你使用缩放、工具提示、标签颜色、自定义操作等进行自定义图表。v
 
-`Chart.js`的许多示例可以在`Chart.js.zip`的`/ samples`文件夹中提供，并附加到[每个版本](https://github.com/chartjs/Chart.js/releases)。
+`Chart.js`的示例在`Chart.js.zip`的`/samples`文件夹中，并附加在[发布版本](https://github.com/chartjs/Chart.js/releases)中。

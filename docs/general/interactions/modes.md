@@ -39,9 +39,10 @@ var chart = new Chart(ctx, {
 Finds the first item that intersects the point and returns it. Behaves like 'nearest' mode with intersect = true.
 
 ## label (已废弃)
-参考 `'index'` 
+参考 `'index'`
 
 ## 索引
+
 查找相同索引项。如果`intersect`为true，则第一个相交项用于确定数据中的索引。如果 `intersect`为false，则使用最近的项来确定索引。
 
 ```javascript
@@ -51,6 +52,21 @@ var chart = new Chart(ctx, {
     options: {
         tooltips: {
             mode: 'index'
+        }
+    }
+})
+```
+
+要在图表中使用索引模式（如水平条形图，沿着y方向搜索），可以使用v2.7.0中引入的`axis`设置。 通过将这个值设置为y方向上的`'y'`被使用。
+
+```javascript
+var chart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: data,
+    options: {
+        tooltips: {
+            mode: 'index',
+            axis: 'y'
         }
     }
 })

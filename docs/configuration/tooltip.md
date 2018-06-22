@@ -1,4 +1,3 @@
-# 提示
 
 ## 提示配置
 
@@ -47,23 +46,7 @@
 提供的模式有:
 
 * 'average'
-* 'nearest'
-
-'average' 模式将提示框放在工具提示中显示的项目的平均位置。
-
-'nearest' 模式将提示框放在最接近事件位置的元素的位置。
-
-可以通过向`Chart.Tooltip.positioners`映射添加函数来定义新模式。
-
-### 排序回调
-
-允许对[提示项](#chart-configuration-tooltip-item-interface)进行排序。必须至少实现一个可以传递给[Array.prototype.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)的函数。此函数也可以接受传递给图表的数据对象的第三个参数。
-
-### 过滤回调
-
-允许过滤[提示项](#chart-configuration-tooltip-item-interface)。必须至少实现一个可以传递给[Array.prototype.filter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)的函数。此函数也可以接受传递给图表的数据对象的第二个参数。
-
-## 提示框回调
+>>>>>>> a0a195f353467a71cbf73aef086249902c53c5a4
 
 提示框标签的配置使用`callbacks`关键字嵌套在提示框下面。提示框具有以下提供文本的回调。对于所有函数，“this”是从`Chart.Tooltip`构造函数创建的提示对象。
 
@@ -78,11 +61,38 @@
 | `beforeLabel`  | `tooltipItem, data`        | 返回在单个 label 之前渲染的文本。提示框中的每个项目调用   |
 | `label`        | `tooltipItem, data`        | 返回在提示框中为单个项目渲染的文本                        |
 | `labelColor`   | `tooltipItem, chart`       | 返回要渲染提示项目的颜色 [更多...](#label-color-callback) |
+| `labelTextColor` | `tooltipItem, chart` | 返回工具提示项目标签文本的颜色|
 | `afterLabel`   | `tooltipItem, data`        | 返回在单个 label 之后渲染的文本                           |
 | `afterBody`    | `Array[tooltipItem], data` | 返回在 body 部分后渲染的文本                              |
 | `beforeFooter` | `Array[tooltipItem], data` | 返回在页脚部分之前渲染的文本                              |
 | `footer`       | `Array[tooltipItem], data` | 返回纯文本的方式渲染页脚                                  |
 | `afterFooter`  | `Array[tooltipItem], data` | 在页脚部分后面渲染的文字                                  |
+
+### 标签回调函数
+
+标签回调可以更改显示给定数据点的文本。 一个常见的例子是整理数据值; 以下示例将数据四舍五入到小数点后两位。
+
+```javascript
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        tooltips: {
+            callbacks: {
+                label: function(tooltipItem, data) {
+                    var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+                    if (label) {
+                        label += ': ';
+                    }
+                    label += Math.round(tooltipItem.yLabel * 100) / 100;
+                    return label;
+                }
+            }
+        }
+    }
+});
+```
 
 ### 标签颜色回调
 
@@ -90,20 +100,23 @@
 
 ```javascript
 var chart = new Chart(ctx, {
-	type: "line",
-	data: data,
-	options: {
-		tooltips: {
-			callbacks: {
-				labelColor: function(tooltipItem, chart) {
-					return {
-						borderColor: "rgb(255, 0, 0)",
-						backgroundColor: "rgb(255, 0, 0)"
-					};
-				}
-			}
-		}
-	}
+    type: 'line',
+    data: data,
+    options: {
+        tooltips: {
+            callbacks: {
+                labelColor: function(tooltipItem, chart) {
+                    return {
+                        borderColor: 'rgb(255, 0, 0)',
+                        backgroundColor: 'rgb(255, 0, 0)'
+                    }
+                },
+                labelTextColor:function(tooltipItem, chart){
+                    return '#543453';
+                }
+            }
+        }
+    }
 });
 ```
 
@@ -139,94 +152,88 @@ var chart = new Chart(ctx, {
 
 ```javascript
 var myPieChart = new Chart(ctx, {
-	type: "pie",
-	data: data,
-	options: {
-		tooltips: {
-			custom: function(tooltipModel) {
-				// 工具提示元素
-				var tooltipEl = document.getElementById("chartjs-tooltip");
+    type: 'pie',
+    data: data,
+    options: {
+        tooltips: {
+            // Disable the on-canvas tooltip
+            enabled: false,
 
-				// 在第一次渲染时创建元素
-				if (!tooltipEl) {
-					tooltipEl = document.createElement("div");
-					tooltipEl.id = "chartjs-tooltip";
-					tooltipEl.innerHTML = "<table></table>";
-					document.body.appendChild(tooltipEl);
-				}
+            custom: function(tooltipModel) {
+                // Tooltip Element
+                var tooltipEl = document.getElementById('chartjs-tooltip');
 
-				// 如果没有提示则隐藏
-				if (tooltipModel.opacity === 0) {
-					tooltipEl.style.opacity = 0;
-					return;
-				}
+                // Create element on first render
+                if (!tooltipEl) {
+                    tooltipEl = document.createElement('div');
+                    tooltipEl.id = 'chartjs-tooltip';
+                    tooltipEl.innerHTML = "<table></table>";
+                    document.body.appendChild(tooltipEl);
+                }
 
-				// 插入符号的位置
-				tooltipEl.classList.remove("above", "below", "no-transform");
-				if (tooltipModel.yAlign) {
-					tooltipEl.classList.add(tooltipModel.yAlign);
-				} else {
-					tooltipEl.classList.add("no-transform");
-				}
+                // Hide if no tooltip
+                if (tooltipModel.opacity === 0) {
+                    tooltipEl.style.opacity = 0;
+                    return;
+                }
 
-				function getBody(bodyItem) {
-					return bodyItem.lines;
-				}
+                // Set caret Position
+                tooltipEl.classList.remove('above', 'below', 'no-transform');
+                if (tooltipModel.yAlign) {
+                    tooltipEl.classList.add(tooltipModel.yAlign);
+                } else {
+                    tooltipEl.classList.add('no-transform');
+                }
 
-				// 设置文字
-				if (tooltipModel.body) {
-					var titleLines = tooltipModel.title || [];
-					var bodyLines = tooltipModel.body.map(getBody);
+                function getBody(bodyItem) {
+                    return bodyItem.lines;
+                }
 
-					var innerHtml = "<thead>";
+                // Set Text
+                if (tooltipModel.body) {
+                    var titleLines = tooltipModel.title || [];
+                    var bodyLines = tooltipModel.body.map(getBody);
 
-					titleLines.forEach(function(title) {
-						innerHtml += "<tr><th>" + title + "</th></tr>";
-					});
-					innerHtml += "</thead><tbody>";
+                    var innerHtml = '<thead>';
 
-					bodyLines.forEach(function(body, i) {
-						var colors = tooltipModel.labelColors[i];
-						var style = "background:" + colors.backgroundColor;
-						style += "; border-color:" + colors.borderColor;
-						style += "; border-width: 2px";
-						var span =
-							'<span class="chartjs-tooltip-key" style="' +
-							style +
-							'"></span>';
-						innerHtml += "<tr><td>" + span + body + "</td></tr>";
-					});
-					innerHtml += "</tbody>";
+                    titleLines.forEach(function(title) {
+                        innerHtml += '<tr><th>' + title + '</th></tr>';
+                    });
+                    innerHtml += '</thead><tbody>';
 
-					var tableRoot = tooltipEl.querySelector("table");
-					tableRoot.innerHTML = innerHtml;
-				}
+                    bodyLines.forEach(function(body, i) {
+                        var colors = tooltipModel.labelColors[i];
+                        var style = 'background:' + colors.backgroundColor;
+                        style += '; border-color:' + colors.borderColor;
+                        style += '; border-width: 2px';
+                        var span = '<span style="' + style + '"></span>';
+                        innerHtml += '<tr><td>' + span + body + '</td></tr>';
+                    });
+                    innerHtml += '</tbody>';
 
-				// `this` 是整体的工具提示
-				var position = this._chart.canvas.getBoundingClientRect();
+                    var tableRoot = tooltipEl.querySelector('table');
+                    tableRoot.innerHTML = innerHtml;
+                }
 
-				// 显示，位置和设置字体的样式
-				tooltipEl.style.opacity = 1;
-				tooltipEl.style.left =
-					position.left + tooltipModel.caretX + "px";
-				tooltipEl.style.top = position.top + tooltipModel.caretY + "px";
-				tooltipEl.style.fontFamily = tooltipModel._fontFamily;
-				tooltipEl.style.fontSize = tooltipModel.fontSize;
-				tooltipEl.style.fontStyle = tooltipModel._fontStyle;
-				tooltipEl.style.padding =
-					tooltipModel.yPadding +
-					"px " +
-					tooltipModel.xPadding +
-					"px";
-			}
-		}
-	}
+                // `this` will be the overall tooltip
+                var position = this._chart.canvas.getBoundingClientRect();
+
+                // Display, position, and set styles for font
+                tooltipEl.style.opacity = 1;
+                tooltipEl.style.position = 'absolute';
+                tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
+                tooltipEl.style.top = position.top + tooltipModel.caretY + 'px';
+                tooltipEl.style.fontFamily = tooltipModel._bodyFontFamily;
+                tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px';
+                tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle;
+                tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
+            }
+        }
+    }
 });
 ```
 
-有关如何开始使用的示例，请参阅`samples/tooltips/line-customTooltips.html`。
-
-## 提示框实体
+See [samples](http://www.chartjs.org/samples/) for examples on how to get started with custom tooltips.
 
 提示框实体包含可用于呈现工具提示的参数。
 
@@ -252,7 +259,7 @@ var myPieChart = new Chart(ctx, {
 
     // Body
     // The body lines that need to be rendered
-    // Each pbject contains 3 parameters
+    // Each object contains 3 parameters
     // before: String[] // lines of text before the line with the color square
     // lines: String[], // lines of text to render as the main item with color square
     // after: String[], // lines of text to render after the main lines

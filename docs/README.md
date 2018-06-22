@@ -1,7 +1,7 @@
 # Chart.js
 
-[![Chart.js on Slack](https://img.shields.io/badge/slack-Chart.js-blue.svg)](https://chart-js-automation.herokuapp.com/)
 [![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg)](https://github.com/abingoal/ChartJS-Doc-Zh-CN)
+[![slack](https://img.shields.io/badge/slack-chartjs-blue.svg?style=flat-square&maxAge=3600)](https://chartjs-slack.herokuapp.com/)
 
 
 ## 安装

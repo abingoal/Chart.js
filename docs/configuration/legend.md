@@ -79,9 +79,9 @@
 }
 ```
 
-## Example
+## 示例
 
-The following example will create a chart with the legend enabled and turn all of the text red in color.
+以下示例将创建一个启用了legend的图表，并将所有文本的颜色变为红色。
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -98,11 +98,11 @@ var chart = new Chart(ctx, {
 });
 ```
 
-## Custom On Click Actions
+## 自定义点击操作
 
-It can be common to want to trigger different behaviour when clicking an item in the legend. This can be easily achieved using a callback in the config object.
+点击legend中的项目触发不同的行为，可以通过在配置对象中使用回调来轻松实现。
 
-The default legend click handler is:
+默认操作为：
 
 ```javascript
 function(e, legendItem) {
@@ -117,8 +117,7 @@ function(e, legendItem) {
     ci.update();
 }
 ```
-
-Lets say we wanted instead to link the display of the first two datasets. We could change the click handler accordingly.
+假设我们希望链接前两个数据集的显示。我们可以相应地更改click handler。
 
 ```javascript
 var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
@@ -147,13 +146,14 @@ var chart = new Chart(ctx, {
 });
 ```
 
-Now when you click the legend in this chart, the visibility of the first two datasets will be linked together.
+此时当你单击此图表中的legend时，前两个数据集的可见性将会链接在一起。
 
 ## HTML Legends
 
-Sometimes you need a very complex legend. In these cases, it makes sense to generate an HTML legend. Charts provide a `generateLegend()` method on their prototype that returns an HTML string for the legend.
+有时你需要一个非常复杂的legend，在这种情况下有必要使用HTML legend。 图表在其原型上提供了一个`generateLegend（）`方法，该方法返回legend的HTML字符串。
 
-To configure how this legend is generated, you can change the `legendCallback` config property.
+要配置如何生成此legend，可以更改`legendCallback`配置属性。
+
 
 ```javascript
 var chart = new Chart(ctx, {
@@ -166,3 +166,5 @@ var chart = new Chart(ctx, {
 	}
 });
 ```
+
+请注意，legendCallback不会自动调用，你必须在使用此方法创建legend时自己在代码中调用`generateLegend（）`。

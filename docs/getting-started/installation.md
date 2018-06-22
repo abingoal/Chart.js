@@ -2,20 +2,33 @@
 Chart.js 可以通过`npm`或`bower`这两种方式安装。
 
 ## npm
+[![npm](https://img.shields.io/npm/v/chart.js.svg?style=flat-square&maxAge=600)](https://npmjs.com/package/chart.js)
+[![npm](https://img.shields.io/npm/dm/chart.js.svg?style=flat-square&maxAge=600)](https://npmjs.com/package/chart.js)
 
 ```bash
 npm install chart.js --savev
 ```
 
 ## Bower
+[![bower](https://img.shields.io/bower/v/chartjs.svg?style=flat-square&maxAge=600)](https://libraries.io/bower/chartjs)
 
 ```bash
 bower install chart.js --save
 ```
 
-## CDN
-或者使用[Chart.js CDN](https://cdnjs.com/libraries/Chart.js)
+### CDNJS
+[![cdnjs](https://img.shields.io/cdnjs/v/Chart.js.svg?style=flat-square&maxAge=600)](https://cdnjs.com/libraries/Chart.js)
 
+构建好的Chart.js[CDNJS](https://cdnjs.com/):
+
+https://cdnjs.com/libraries/Chart.js
+
+### jsDelivr
+[![jsdelivr](https://img.shields.io/npm/v/chart.js.svg?label=jsdelivr&style=flat-square&maxAge=600)](https://cdn.jsdelivr.net/npm/chart.js@latest/dist/) [![jsdelivr hits](https://data.jsdelivr.com/v1/package/npm/chart.js/badge)](https://www.jsdelivr.com/package/npm/chart.js)
+
+也可以使用 [jsDelivr](http://www.jsdelivr.com/):
+
+https://www.jsdelivr.com/package/npm/chart.js?path=dist
 
 ## Github
 你也可以从这里[Chart.js on GitHub](https://github.com/chartjs/Chart.js/releases/latest)下载最新的发布版。
@@ -24,7 +37,7 @@ bower install chart.js --save
 
 # 选择合适的构建方式
 
-Chart.js 提供了两种不同的构建方式供你选择。
+Chart.js 提供了两种不同的构建方式供你选择：`Stand-Alone Build`, `Bundled Build`。
 
 ## 独立构建
 文件:

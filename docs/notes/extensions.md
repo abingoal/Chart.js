@@ -14,9 +14,12 @@
 ## 插件
 
  - <a href="https://github.com/chartjs/chartjs-plugin-annotation" target="_blank">chartjs-plugin-annotation.js</a> - 在图表区域绘制线条和框。
- - <a href="https://github.com/chartjs/chartjs-plugin-deferred" target="_blank">chartjs-plugin-deferred.js</a> - 图表懒加载
- - <a href="https://github.com/compwright/chartjs-plugin-draggable" target="_blank">chartjs-plugin-draggable.js</a> - 鼠标拖动图表
+ - <a href="https://github.com/chartjs/chartjs-plugin-datalabels" target="_blank">chartjs-plugin-datalabels</a> - 在任何类型的图表的数据上显示标签。
+ - <a href="https://github.com/chartjs/chartjs-plugin-deferred" target="_blank">chartjs-plugin-deferred.js</a> - 图表懒加载。
+ - <a href="https://github.com/compwright/chartjs-plugin-draggable" target="_blank">chartjs-plugin-draggable.js</a> - 鼠标拖动图表。
  - <a href="https://github.com/y-takey/chartjs-plugin-stacked100" target="_blank">chartjs-plugin-stacked100.js</a> - 绘制100％堆叠条形图。
+ - <a href="https://github.com/nagix/chartjs-plugin-streaming" target="_blank">chartjs-plugin-streaming</a> - 创建直播流式图表。
+ - <a href="https://github.com/everestate/chartjs-plugin-waterfall" target="_blank">chartjs-plugin-waterfall</a> - 轻松使用瀑布图。
  - <a href="https://github.com/chartjs/chartjs-plugin-zoom" target="_blank">chartjs-plugin-zoom.js</a> - 在图表上启用缩放和平移。
 
 
@@ -24,7 +27,12 @@
 
 ## 与其他项目集成
 
-### Angular
+### Angular (v2+)
+
+ - <a href="https://github.com/emn178/angular2-chartjs" target="_blank">emn178/angular2-chartjs</a>
+ - <a href="https://github.com/valor-software/ng2-charts" target="_blank">valor-software/ng2-charts</a>
+
+### Angular (v1)
  - <a href="https://github.com/jtblin/angular-chart.js" target="_blank">angular-chart.js</a>
  - <a href="https://github.com/carlcraig/tc-angular-chartjs" target="_blank">tc-angular-chartjs</a>
  - <a href="https://github.com/petermelias/angular-chartjs" target="_blank">angular-chartjs</a>
@@ -46,3 +54,12 @@
 
 ### Vue.js
  - <a href="https://github.com/apertureless/vue-chartjs/" target="_blank">vue-chartjs</a>
+
+### Java
+ - <a href="https://github.com/mdewilde/chart/" target="_blank">Chart.java</a>
+
+### GWT (Google Web toolkit)
+ - <a href="https://github.com/pepstock-org/Charba" target="_blank">Charba</a>
+
+### Ember.js
+ - <a href="https://github.com/aomran/ember-cli-chart" target="_blank">ember-cli-chart</a>

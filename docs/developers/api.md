@@ -16,7 +16,7 @@ var myLineChart = new Chart(ctx, config);
 myLineChart.destroy();
 ```
 
-## .update(duration, lazy)
+## .update(config)
 
 触发图表的更新。这可以在更新数据对象之后安全地调用。这将更新所有的比例，图例，然后重新渲染图表。
 
@@ -29,9 +29,22 @@ myLineChart.update(); // Calling update now animates the position of March from 
 
 > **注意:** 只在替换数据引用时起作用 (例如 `myLineChart.data = {datasets: [...]}`
 
-> **version 2.6**. 在此之前，使用以下解决方法可以替换整个数据对象： `myLineChart.config.data = {datasets: [...]}`.
+可以为`config`对象提供更新过程的附加配置。 当在事件处理程序中手动调用`update`并且需要一些不同的动画时将非常有用。
 
-参考 [更新图表(Updating Charts)](updates.md) 查看更多细节
+支持以下属性：
+* **duration** (number): 动画重绘的时间，以毫秒为单位
+* **lazy** (boolean): 如果为true，则动画可以被其他动画中断
+* **easing** (string): 动画的easing函数。 相关值请参阅[Animation Easing](../configuration/animations.md)。
+
+例子:
+```javascript
+myChart.update({
+    duration: 800,
+    easing: 'easeOutBounce'
+})
+```
+
+参见[更新 Charts](updates.md) 获取更多详细信息
 
 ## .reset()
 
@@ -41,14 +54,20 @@ myLineChart.update(); // Calling update now animates the position of March from 
 myLineChart.reset();
 ```
 
-## .render(duration, lazy)
+## .render(config)
 
 触发所有图表元素的重绘。 请注意，这不会更新新数据的元素。 在这种情况下使用`.update（）`。
+
+See `.update(config)` for more details on the config object.
 
 ```javascript
 // duration is the time for the animation of the redraw in milliseconds
 // lazy is a boolean. if true, the animation can be interrupted by other animations
-myLineChart.render(duration, lazy);
+myLineChart.render({
+	duration: 800,
+	lazy: false,
+	easing: 'easeOutBounce'
+});
 ```
 
 ## .stop()
@@ -106,6 +125,19 @@ myLineChart.generateLegend();
 ```javascript
 myLineChart.getElementAtEvent(e);
 // => returns the first element at the event point.
+```
+
+To get an item that was clicked on, `getElementAtEvent` can be used.
+
+```javascript
+function clickHandler(evt) {
+    var firstPoint = myChart.getElementAtEvent(evt)[0];
+
+    if (firstPoint) {
+        var label = myChart.data.labels[firstPoint._index];
+        var value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+    }
+}
 ```
 
 ## .getElementsAtEvent(e)
